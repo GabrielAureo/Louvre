@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 	CharacterController _controller;
-	Camera cam;
 	[SerializeField] float walkSpeed;
-	[SerializeField] float mouseSpeed;
+
 	
 	void Awake(){
 		_controller = GetComponent<CharacterController>();
-		cam = Camera.main;
 	}
 
 	// Use this for initialization
@@ -28,7 +26,7 @@ public class Player : MonoBehaviour {
 		
 	}
 
-	void Look()
+	/*void Look()
     {
         Quaternion cr = cam.transform.rotation;
         Quaternion target = Quaternion.Euler(cr.eulerAngles.x - (Input.GetAxis("Mouse Y") * mouseSpeed), cr.eulerAngles.y + (Input.GetAxis("Mouse X") * mouseSpeed), 0);
@@ -46,4 +44,5 @@ public class Player : MonoBehaviour {
         cam.transform.rotation = target;
 
 	} 
+	*/
 }
