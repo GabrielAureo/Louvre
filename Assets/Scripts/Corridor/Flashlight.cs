@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Flashlight : MonoBehaviour {
+public class Flashlight : Item {
 
 	Light source;
 
@@ -24,12 +24,16 @@ public class Flashlight : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(Input.GetButtonDown("Fire1")){
+	//void Update () {
+//		if(Input.GetButtonDown("Fire1")){
 			//source.DOIntensity(source.intensity == 0 ? intensity: 0 ,switchDuration).Play();
-			DOTween.To(()=>source.range, x=>source.range = x, source.range == 0 ? range: 0,switchDuration);
 			
-		}
+	//	}
 					
-	}
+	//}
+
+    public void TurnOnOff()
+    {
+        DOTween.To(() => source.range, x => source.range = x, source.range == 0 ? range : 0, switchDuration);
+    }
 }
