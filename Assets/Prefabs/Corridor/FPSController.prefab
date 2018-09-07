@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 114028949573529994}
   - component: {fileID: 114533688067041066}
   m_Layer: 0
-  m_Name: ArmItem
+  m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1252,6 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxReach: 6
+  dropDistance: 1
   itemLayerMask:
     serializedVersion: 2
     m_Bits: 768

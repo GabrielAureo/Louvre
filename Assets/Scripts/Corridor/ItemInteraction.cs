@@ -42,7 +42,19 @@ public class ItemInteraction : MonoBehaviour
                 DropItem();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) AttemptToSwitchItemInHand(1);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) AttemptToSwitchItemInHand(2);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) AttemptToSwitchItemInHand(3);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) AttemptToSwitchItemInHand(4);
+        if (Input.GetKeyDown(KeyCode.Alpha5)) AttemptToSwitchItemInHand(5);
+        if (Input.GetKeyDown(KeyCode.Alpha6)) AttemptToSwitchItemInHand(6);
+        if (Input.GetKeyDown(KeyCode.Alpha7)) AttemptToSwitchItemInHand(7);
+        if (Input.GetKeyDown(KeyCode.Alpha8)) AttemptToSwitchItemInHand(8);
+        if (Input.GetKeyDown(KeyCode.Alpha9)) AttemptToSwitchItemInHand(9);
+        if (Input.GetKeyDown(KeyCode.Alpha0)) AttemptToSwitchItemInHand(10);
     }
+
 
     private void AttemptToGetItem()
     {
@@ -60,7 +72,7 @@ public class ItemInteraction : MonoBehaviour
     {
         GameObject itemHeld = handScript.LetGoOfItem();
         handScript.TakeItem(itemToTake);
-        inventoryScript.Add(itemHeld);
+        inventoryScript.AddItem(itemHeld);
     }
 
     private void DropItem()
@@ -71,5 +83,20 @@ public class ItemInteraction : MonoBehaviour
         if (item.GetComponent<Rigidbody>()) item.GetComponent<Rigidbody>().isKinematic = false;
 
         if (inventoryScript.GetCount() > 0) handScript.TakeItem(inventoryScript.Pop());
+    }
+
+    private void AttemptToSwitchItemInHand(int inventoryIndex)
+    {
+        if (handScript.IsHolding() && inventoryScript.GetCount() >= inventoryIndex)
+        {
+            SwitchItemInHand(inventoryIndex);
+        }
+    }
+
+    private void SwitchItemInHand(int inventoryIndex)
+    {
+        GameObject itemHeld = handScript.LetGoOfItem();
+        handScript.TakeItem(inventoryScript.RemoveIndex(inventoryIndex - 1));
+        inventoryScript.AddItemAt(itemHeld, inventoryIndex - 1);
     }
 }
