@@ -75,6 +75,7 @@ public class ItemInteraction : MonoBehaviour
         GameObject itemHeld = handScript.LetGoOfItem();
         handScript.TakeItem(itemToTake);
         inventoryScript.AddItem(itemHeld);
+        if (itemToTake.GetComponent<Item>()) itemToTake.GetComponent<Item>().OnInteraction();
     }
 
     private void DropItem()

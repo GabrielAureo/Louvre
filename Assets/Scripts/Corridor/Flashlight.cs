@@ -7,14 +7,14 @@ public class Flashlight : Item {
 
 	Light source;
 
-	float intensity;
+	//float intensity;
 	float range;
 
 	[SerializeField] float switchDuration = .5f;
 
 	void Awake(){
 		source = GetComponentInChildren<Light>(); 
-		intensity = source.intensity;
+		//intensity = source.intensity;
 		range = source.range;
 	}
 
@@ -35,5 +35,10 @@ public class Flashlight : Item {
     public void TurnOnOff()
     {
         DOTween.To(() => source.range, x => source.range = x, source.range == 0 ? range : 0, switchDuration);
+    }
+
+    public new void OnInteraction()
+    {
+        base.OnInteraction();
     }
 }
