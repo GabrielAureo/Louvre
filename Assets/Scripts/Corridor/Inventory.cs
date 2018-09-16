@@ -21,11 +21,6 @@ public class Inventory : MonoBehaviour, ISubject
         }
     }
 
-    private void Update()
-    {
-        print(inventory.Count);
-    }
-
     private void Awake()
     {
         inventory = new List<GameObject>();

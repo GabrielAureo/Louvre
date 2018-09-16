@@ -11,11 +11,13 @@ public class ItemInteraction : MonoBehaviour
 
     private Inventory inventoryScript;
     private Hand handScript;
+    private Camera mainCamera;
 
     private void Awake()
     {
         inventoryScript = GetComponent<Inventory>();
         handScript = GetComponentInChildren<Hand>();
+        mainCamera = Camera.main;
     }
 
     void Update ()
@@ -58,8 +60,8 @@ public class ItemInteraction : MonoBehaviour
 
     private void AttemptToGetItem()
     {
-        Vector3 origin = transform.position;
-        Vector3 direction = transform.forward;
+        Vector3 origin = mainCamera.transform.position;
+        Vector3 direction = mainCamera.transform.forward;
         RaycastHit hitInfo;
 
         if (Physics.Raycast(origin, direction, out hitInfo, maxReach, itemLayerMask) && hitInfo.collider.gameObject != null)
