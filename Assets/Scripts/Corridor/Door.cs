@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    private Animator anim;
+    [SerializeField] private Transform hinge;
+    [SerializeField] private float angleToRotate;
+    [SerializeField] private float durationOfRotation;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        durationOfRotation = 1 / durationOfRotation;
     }
 
     public void Unlock()
     {
-        anim.Play("OpenDoor");
+        StartCoroutine("OpenDoor");
+    }
+
+    private IEnumerator OpenDoor()
+    {
+        while (transform.localRotation.eulerAngles.y < angleToRotate)
+        {
+            transform.RotateAround(hinge.position, Vector3.up, angleToRotate * Time.deltaTime * durationOfRotation);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
