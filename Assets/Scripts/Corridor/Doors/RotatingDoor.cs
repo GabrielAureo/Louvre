@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class RotatingDoor : Door
 {
     [SerializeField] private Transform hinge;
     [SerializeField] private float angleToRotate;
