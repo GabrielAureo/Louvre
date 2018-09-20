@@ -7,11 +7,8 @@ public class AscendingDoor : Door
     [SerializeField] private float heightToAscend;
     [SerializeField] private float duration;
 
-    private float originalY;
-
     private void Awake()
     {
-        originalY = transform.localPosition.y;
         duration = 1 / duration;
     }
 

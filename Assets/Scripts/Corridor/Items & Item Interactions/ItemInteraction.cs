@@ -7,6 +7,8 @@ public class ItemInteraction : MonoBehaviour
 {
     [SerializeField] private float maxReach = 3f;
     [SerializeField] private float dropDistance = 1f;
+    [SerializeField] private float dropHeight = 1f;
+    [SerializeField] private float dropHorizontalAdjust = 0.5f;
     [SerializeField] private LayerMask itemLayerMask;
 
     private Inventory inventoryScript;
@@ -80,8 +82,9 @@ public class ItemInteraction : MonoBehaviour
 
     private void DropItem()
     {
+        Vector3 vectorPointingToTheLeftOfThePlayer = (-(Vector3.Cross(transform.up, transform.forward))).normalized;
         GameObject item = handScript.LetGoOfItem();
-        item.transform.position = transform.position + transform.forward * dropDistance;
+        item.transform.position = transform.position + transform.forward * dropDistance + Vector3.up * dropHeight + vectorPointingToTheLeftOfThePlayer * dropHorizontalAdjust;
         item.transform.parent = null;
         if (item.GetComponent<Rigidbody>()) item.GetComponent<Rigidbody>().isKinematic = false;
 

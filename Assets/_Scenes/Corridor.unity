@@ -2026,6 +2026,11 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1954549391}
+    - target: {fileID: 114735292713728860, guid: 466dc61b0b2ba514798e5ed7c41f2dd6,
+        type: 2}
+      propertyPath: dropHeight
+      value: 1.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466dc61b0b2ba514798e5ed7c41f2dd6, type: 2}
   m_IsPrefabAsset: 0
