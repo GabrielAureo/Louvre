@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a29b2f2d5bb55c94c8d66eee8e244276
+guid: 9767ef5388a8e1b4eb0986694b2f2281
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,55 +9,85 @@ ModelImporter:
     100006: Cube
     100008: FingerA
     100010: FingerB
-    100012: FingerTip
-    100014: Hand
-    100016: //RootNode
-    100018: PinkyA
-    100020: PinkyB
-    100022: PinkyTip
-    100024: PointA
-    100026: PointB
-    100028: PointTip
-    100030: RingA
-    100032: RingB
-    100034: RingTip
-    100036: Root
-    100038: Shoulder
-    100040: ThumbA
-    100042: ThumbB
-    100044: ThumbTip
+    100012: FingerIK
+    100014: FingerIK_end
+    100016: FingerTip
+    100018: FingerTip_end
+    100020: Hand
+    100022: //RootNode
+    100024: PinkyA
+    100026: PinkyB
+    100028: PinkyIK
+    100030: PinkyIK_end
+    100032: PinkyTip
+    100034: PinkyTip_end
+    100036: PointA
+    100038: PointB
+    100040: PointIK
+    100042: PointIK_end
+    100044: PointTip
+    100046: PointTip_end
+    100048: RingA
+    100050: RingB
+    100052: RingIK
+    100054: RingIK_end
+    100056: RingTip
+    100058: RingTip_end
+    100060: Root
+    100062: Shoulder
+    100064: ThumbA
+    100066: ThumbB
+    100068: ThumbIK
+    100070: ThumbIK_end
+    100072: ThumbTip
+    100074: ThumbTip_end
     400000: Armature
     400002: ArmDown
     400004: ArmUp
     400006: Cube
     400008: FingerA
     400010: FingerB
-    400012: FingerTip
-    400014: Hand
-    400016: //RootNode
-    400018: PinkyA
-    400020: PinkyB
-    400022: PinkyTip
-    400024: PointA
-    400026: PointB
-    400028: PointTip
-    400030: RingA
-    400032: RingB
-    400034: RingTip
-    400036: Root
-    400038: Shoulder
-    400040: ThumbA
-    400042: ThumbB
-    400044: ThumbTip
-    2100000: Material__hands_skin_png
+    400012: FingerIK
+    400014: FingerIK_end
+    400016: FingerTip
+    400018: FingerTip_end
+    400020: Hand
+    400022: //RootNode
+    400024: PinkyA
+    400026: PinkyB
+    400028: PinkyIK
+    400030: PinkyIK_end
+    400032: PinkyTip
+    400034: PinkyTip_end
+    400036: PointA
+    400038: PointB
+    400040: PointIK
+    400042: PointIK_end
+    400044: PointTip
+    400046: PointTip_end
+    400048: RingA
+    400050: RingB
+    400052: RingIK
+    400054: RingIK_end
+    400056: RingTip
+    400058: RingTip_end
+    400060: Root
+    400062: Shoulder
+    400064: ThumbA
+    400066: ThumbB
+    400068: ThumbIK
+    400070: ThumbIK_end
+    400072: ThumbTip
+    400074: ThumbTip_end
+    2100000: Material
     4300000: Cube
-    7400000: Default Take
-    7400002: attack
-    7400004: idle
-    7400006: test
-    7400008: PoseLib
+    7400000: Armature|PoseLib
+    7400002: Armature|PoseLib.001
+    7400004: Armature|PoseLib.002
+    7400006: Armature|test
     9500000: //RootNode
     13700000: Cube
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -89,13 +119,13 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.33
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -109,12 +139,12 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 0.0033
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 0
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
