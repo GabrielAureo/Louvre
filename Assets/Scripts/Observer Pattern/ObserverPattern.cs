@@ -4,12 +4,27 @@ using UnityEngine;
 
 public interface IObserver
 {
-    void OnNotify();
+    void OnNotify(NotifyArg arg);
 }
 
 public interface ISubject
 {
     void AddObserver(IObserver o);
     void RemoveObserver(IObserver o);
-    void Notify();
+    void Notify(NotifyArg arg);
+}
+
+public class NotifyArg
+{
+    public string stringArg;
+
+    public NotifyArg(string stringArg)
+    {
+        this.stringArg = stringArg;
+    }
+
+    public NotifyArg()
+    {
+        this.stringArg = null;
+    }
 }

@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4080558880294378}
   - component: {fileID: 137544809606987154}
+  - component: {fileID: 136173673868681714}
   m_Layer: 0
   m_Name: Object002
   m_TagString: Untagged
@@ -399,6 +400,7 @@ GameObject:
   - component: {fileID: 95498606516721156}
   - component: {fileID: 195424886214333100}
   - component: {fileID: 114085530797417358}
+  - component: {fileID: 114693435753891572}
   m_Layer: 0
   m_Name: bailarinaCaminhando
   m_TagString: Untagged
@@ -759,7 +761,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895965229392522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 0, z: 12}
+  m_LocalPosition: {x: -45, y: 0, z: -12}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4111255132924788}
@@ -926,6 +928,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 0}
+--- !u!114 &114693435753891572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1895965229392522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d797b03c6f801034dacfd45d59c4310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 102
+--- !u!136 &136173673868681714
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1078683121337494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 1.4424548
+  m_Direction: 1
+  m_Center: {x: -0.0035269216, y: 0.6022838, z: 0.0009608985}
 --- !u!137 &137544809606987154
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -941,7 +968,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f0447fead37f2994e8868234a8fe9876, type: 3}
+  - {fileID: 2100000, guid: 2e0bad553c454a34786bf072eabd5857, type: 2}
   - {fileID: 2100002, guid: f0447fead37f2994e8868234a8fe9876, type: 3}
   - {fileID: 2100004, guid: f0447fead37f2994e8868234a8fe9876, type: 3}
   - {fileID: 2100006, guid: f0447fead37f2994e8868234a8fe9876, type: 3}

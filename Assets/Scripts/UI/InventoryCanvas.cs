@@ -16,7 +16,7 @@ public class InventoryCanvas : MonoBehaviour, IObserver
         inventoryScript.AddObserver(this);
     }
 
-    public void OnNotify()
+    public void OnNotify(NotifyArg arg)
     {
         foreach (GameObject go in items) Destroy(go);
         items.Clear();

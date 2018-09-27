@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInteraction : MonoBehaviour
+public class ItemInteraction : MonoBehaviour, ISubject
 {
     [SerializeField] private float maxReach = 3f;
     [SerializeField] private float dropDistance = 1f;
     [SerializeField] private float dropHeight = 1f;
     [SerializeField] private float dropHorizontalAdjust = 0.5f;
     [SerializeField] private LayerMask itemLayerMask;
+
+    public List<IObserver> observers;
 
     private Inventory inventoryScript;
     private Hand handScript;
@@ -20,11 +22,13 @@ public class ItemInteraction : MonoBehaviour
         inventoryScript = GetComponent<Inventory>();
         handScript = GetComponentInChildren<Hand>();
         mainCamera = Camera.main;
+        observers = new List<IObserver>();
     }
 
     void Update ()
     {
         GetInput();
+        AttemptToGetItemDescription();
 	}
 
     private void GetInput()
@@ -58,7 +62,6 @@ public class ItemInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9)) AttemptToSwitchItemInHand(9);
         if (Input.GetKeyDown(KeyCode.Alpha0)) AttemptToSwitchItemInHand(10);
     }
-
 
     private void AttemptToGetItem()
     {
@@ -104,5 +107,52 @@ public class ItemInteraction : MonoBehaviour
         GameObject itemHeld = handScript.LetGoOfItem();
         handScript.TakeItem(inventoryScript.RemoveIndex(inventoryIndex - 1));
         inventoryScript.AddItemAt(itemHeld, inventoryIndex - 1);
+    }
+
+    private void AttemptToGetItemDescription()
+    {
+        Vector3 origin = mainCamera.transform.position;
+        //Vector3 origin = transform.position;
+        Vector3 direction = mainCamera.transform.forward;
+        RaycastHit hitInfo;
+
+        Debug.DrawRay(origin, direction * maxReach, Color.red, 0.3f);
+
+        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, itemLayerMask) && hitInfo.collider.gameObject != null)
+        {
+            GetItemDescription(hitInfo.collider.gameObject);
+        }
+        else
+        {
+            
+        }
+    }
+
+    private void GetItemDescription(GameObject item)
+    {
+        string description = null;
+
+        if (item.GetComponent<Item>()) description = item.GetComponent<Item>().GetDescription();
+
+        //print(description);
+        Notify(new NotifyArg(description));
+    }
+
+    public void AddObserver(IObserver o)
+    {
+        observers.Add(o);
+    }
+
+    public void RemoveObserver(IObserver o)
+    {
+        observers.Remove(o);
+    }
+
+    public void Notify(NotifyArg arg)
+    {
+        foreach (IObserver o in observers)
+        {
+            o.OnNotify(arg);
+        }
     }
 }

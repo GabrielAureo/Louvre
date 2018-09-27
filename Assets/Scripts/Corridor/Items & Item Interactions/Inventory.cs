@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour, ISubject
             inventory.Add(go);
         }
 
-        Notify();
+        Notify(new NotifyArg());
     }
 
     public void AddItemAt(GameObject go, int index)
@@ -46,13 +46,13 @@ public class Inventory : MonoBehaviour, ISubject
             inventory.Insert(index, go);
         }
 
-        Notify();
+        Notify(new NotifyArg());
     }
 
     public GameObject RemoveItem(GameObject go)
     {
         inventory.Remove(go);
-        Notify();
+        Notify(new NotifyArg());
         return go;
     }
 
@@ -60,7 +60,7 @@ public class Inventory : MonoBehaviour, ISubject
     {
         GameObject go = inventory[index];
         inventory.RemoveAt(index);
-        Notify();
+        Notify(new NotifyArg());
         return go;
     }
 
@@ -68,7 +68,7 @@ public class Inventory : MonoBehaviour, ISubject
     {
         GameObject last = inventory[inventory.Count - 1];
         inventory.Remove(last);
-        Notify();
+        Notify(new NotifyArg());
         return last;
     }
 
@@ -87,11 +87,11 @@ public class Inventory : MonoBehaviour, ISubject
         observers.Remove(o);
     }
 
-    public void Notify()
+    public void Notify(NotifyArg arg)
     {
         foreach (IObserver observer in observers)
         {
-            observer.OnNotify();
+            observer.OnNotify(new NotifyArg());
         }
     }
 }
