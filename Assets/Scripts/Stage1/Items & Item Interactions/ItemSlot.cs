@@ -12,8 +12,9 @@ public class ItemSlot : MonoBehaviour
         go.transform.parent = transform;
         if (go.GetComponent<Item>())
         {
-            go.transform.localPosition = go.GetComponent<Item>().GetOriginalPosition();
-            go.transform.localRotation = go.GetComponent<Item>().GetOriginalRotation();
+            go.transform.localPosition = go.GetComponent<Item>().GetLocalPositionWhenInSlot();
+            go.transform.localScale = go.GetComponent<Item>().GetLocalScaleWhenInSlot();
+            go.transform.localRotation = go.GetComponent<Item>().GetLocalRotationWhenInSlot();
         }
     }
 }

@@ -5,16 +5,19 @@ using UnityEngine.Events;
 
 public class Item : MonoBehaviour
 {
-    public Quaternion standardRotation;
+    public Vector3 localPositionWhenInHand;
+    public Vector3 rotationWhenInHand;
     [SerializeField] private string description;
     [SerializeField] private UnityEvent onInteraction;
 
     private Vector3 originalPosition;
+    private Vector3 originalScale;
     private Quaternion originalRotation;
 
     private void Start()
     {
         originalPosition = transform.localPosition;
+        originalScale = transform.localScale;
         originalRotation = transform.localRotation;
     }
 
@@ -28,12 +31,17 @@ public class Item : MonoBehaviour
         return description;
     }
 
-    public Vector3 GetOriginalPosition()
+    public Vector3 GetLocalPositionWhenInSlot()
     {
         return originalPosition;
     }
 
-    public Quaternion GetOriginalRotation()
+    public Vector3 GetLocalScaleWhenInSlot()
+    {
+        return originalScale;
+    }
+
+    public Quaternion GetLocalRotationWhenInSlot()
     {
         return originalRotation;
     }

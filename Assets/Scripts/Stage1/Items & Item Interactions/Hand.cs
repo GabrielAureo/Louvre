@@ -29,7 +29,8 @@ public class Hand : MonoBehaviour
             if (item.GetComponent<Rigidbody>()) item.GetComponent<Rigidbody>().isKinematic = true;
             item.transform.parent = transform;
             item.transform.position = transform.position;
-            item.transform.rotation = item.GetComponent<Item>().standardRotation;
+            item.transform.localPosition = item.GetComponent<Item>().localPositionWhenInHand;
+            item.transform.localRotation = Quaternion.Euler(item.GetComponent<Item>().rotationWhenInHand);
             itemInHand = item;
         }
     }
