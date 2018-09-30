@@ -9,7 +9,9 @@ public class ItemInteraction : MonoBehaviour, ISubject
     [SerializeField] private float dropDistance = 1f;
     [SerializeField] private float dropHeight = 1f;
     [SerializeField] private float dropHorizontalAdjust = 0.5f;
-    [SerializeField] private LayerMask itemLayerMask;
+    [SerializeField] private LayerMask interactableItemLayerMask;
+    [SerializeField] private LayerMask examinableItemLayerMask;
+    [SerializeField] private LayerMask slotLayerMask;
 
     public List<IObserver> observers;
 
@@ -45,7 +47,7 @@ public class ItemInteraction : MonoBehaviour, ISubject
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (handScript.IsHolding())
+            if (!AttemptToFitItemInSlot() && handScript.IsHolding())
             {
                 DropItem();
             }
@@ -69,7 +71,7 @@ public class ItemInteraction : MonoBehaviour, ISubject
         Vector3 direction = mainCamera.transform.forward;
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, itemLayerMask) && hitInfo.collider.gameObject != null)
+        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, interactableItemLayerMask) && hitInfo.collider.gameObject != null)
         {
             GetItem(hitInfo.collider.gameObject);
         }
@@ -78,6 +80,7 @@ public class ItemInteraction : MonoBehaviour, ISubject
     private void GetItem(GameObject itemToTake)
     {
         GameObject itemHeld = handScript.LetGoOfItem();
+        if (itemToTake.GetComponent<Collider>()) itemToTake.GetComponent<Collider>().enabled = false;
         handScript.TakeItem(itemToTake);
         inventoryScript.AddItem(itemHeld);
         if (itemToTake.GetComponent<Item>()) itemToTake.GetComponent<Item>().OnInteraction();
@@ -87,6 +90,7 @@ public class ItemInteraction : MonoBehaviour, ISubject
     {
         Vector3 vectorPointingToTheLeftOfThePlayer = (-(Vector3.Cross(transform.up, transform.forward))).normalized;
         GameObject item = handScript.LetGoOfItem();
+        if (item && item.GetComponent<Collider>()) item.GetComponent<Collider>().enabled = true;
         item.transform.position = transform.position + transform.forward * dropDistance + Vector3.up * dropHeight + vectorPointingToTheLeftOfThePlayer * dropHorizontalAdjust;
         item.transform.parent = null;
         if (item.GetComponent<Rigidbody>()) item.GetComponent<Rigidbody>().isKinematic = false;
@@ -118,14 +122,43 @@ public class ItemInteraction : MonoBehaviour, ISubject
 
         Debug.DrawRay(origin, direction * maxReach, Color.red, 0.3f);
 
-        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, itemLayerMask) && hitInfo.collider.gameObject != null)
+        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, examinableItemLayerMask) && hitInfo.collider.gameObject != null)
         {
             GetItemDescription(hitInfo.collider.gameObject);
         }
+    }
+
+    private bool AttemptToFitItemInSlot()
+    {
+        Vector3 origin = mainCamera.transform.position;
+        Vector3 direction = mainCamera.transform.forward;
+        RaycastHit hitInfo;
+        
+        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, slotLayerMask) && hitInfo.collider.gameObject != null)
+        {
+            LayerMask itemLayer = hitInfo.collider.gameObject.GetComponent<ItemSlot>().itemToFitHere;
+            if (itemLayer == (itemLayer | (1 << handScript.ItemInHand.layer)))
+            {
+                FitItemInSlot(hitInfo.collider.gameObject);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         else
         {
-            
+            return false;
         }
+    }
+
+    private void FitItemInSlot(GameObject go)
+    {
+        GameObject item = handScript.LetGoOfItem();
+        if (item && item.GetComponent<Collider>()) item.GetComponent<Collider>().enabled = true;
+        if (go.GetComponent<ItemSlot>()) go.GetComponent<ItemSlot>().FitItem(item);
+        if (inventoryScript.GetCount() > 0) handScript.TakeItem(inventoryScript.Pop());
     }
 
     private void GetItemDescription(GameObject item)

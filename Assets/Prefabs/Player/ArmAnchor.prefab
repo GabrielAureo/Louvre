@@ -1020,7 +1020,10 @@ MonoBehaviour:
   dropDistance: 2
   dropHeight: 1.3
   dropHorizontalAdjust: 0.5
-  itemLayerMask:
+  interactableItemLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  examinableItemLayerMask:
     serializedVersion: 2
     m_Bits: 768
 --- !u!114 &114905730160228024

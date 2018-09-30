@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Painting : MonoBehaviour {
-
+public class Painting : Item
+{
+    /*
 	[SerializeField] Texture2D painting;
 	MeshRenderer mesh;
 
@@ -27,5 +28,5 @@ public class Painting : MonoBehaviour {
 	void OnValidate(){
 
 	}
-	
+	*/
 }
