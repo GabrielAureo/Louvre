@@ -1,34 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuzzleOne : MonoBehaviour
 {
     [SerializeField] private int numberOfBoardsToFill;
     [SerializeField] private float lightsOffTimeInterval;
     [SerializeField] private TurnLightOnOff[] lights;
+    [SerializeField] private UnityEvent onPuzzleFinished;
 
     private int numberOfBoardsDoneRight = 0, numberOfBoardsDoneWrong = 0;
 
     public void OnRightItemFit()
     {
         numberOfBoardsDoneRight++;
+        CheckPuzzleProgress();
     }
 
     public void OnWrongItemFit()
     {
         numberOfBoardsDoneWrong++;
-        StartCoroutine(TurnLightsOff());
+        CheckPuzzleProgress();
     }
 
     private void CheckPuzzleProgress()
     {
         if (numberOfBoardsDoneRight == numberOfBoardsToFill)
         {
-            print("acertou");
+            onPuzzleFinished.Invoke();
         }
 
-        if (numberOfBoardsDoneWrong == numberOfBoardsToFill)
+        if (numberOfBoardsDoneWrong > 0 && numberOfBoardsDoneRight + numberOfBoardsDoneWrong == numberOfBoardsToFill)
         {
             StartCoroutine(TurnLightsOff());
         }
