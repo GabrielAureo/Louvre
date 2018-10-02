@@ -136,7 +136,7 @@ public class ItemInteraction : MonoBehaviour, ISubject
         
         if (Physics.Raycast(origin, direction, out hitInfo, maxReach, slotLayerMask) && hitInfo.collider.gameObject != null)
         {
-            LayerMask itemLayer = hitInfo.collider.gameObject.GetComponent<ItemSlot>().itemToFitHere;
+            LayerMask itemLayer = hitInfo.collider.gameObject.GetComponent<ItemSlot>().layerToFitHere;
             if (itemLayer == (itemLayer | (1 << handScript.ItemInHand.layer)))
             {
                 FitItemInSlot(hitInfo.collider.gameObject);

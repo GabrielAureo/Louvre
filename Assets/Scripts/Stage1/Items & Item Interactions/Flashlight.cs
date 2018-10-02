@@ -5,24 +5,22 @@ using DG.Tweening;
 
 public class Flashlight : Item {
 
-	Light source;
+	//Light source;
 
 	//float intensity;
-	float range;
+	//float range;
 
-	[SerializeField] float switchDuration = .5f;
+	//[SerializeField] float switchDuration = .5f;
+
+    private TurnLightOnOff lightOnOffScript;
 
 	void Awake(){
-		source = GetComponentInChildren<Light>(); 
+		//source = GetComponentInChildren<Light>();
+        lightOnOffScript = GetComponent<TurnLightOnOff>();
 		//intensity = source.intensity;
-		range = source.range;
+		//range = source.range;
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	//void Update () {
 //		if(Input.GetButtonDown("Fire1")){
@@ -32,11 +30,18 @@ public class Flashlight : Item {
 					
 	//}
 
+/*
     public void TurnOnOff()
     {
         DOTween.To(() => source.range, x => source.range = x, source.range == 0 ? range : 0, switchDuration);
     }
+*/
 
+    public void TurnOnOff()
+    {
+        lightOnOffScript.TurnOnOff();
+    }
+    
     public new void OnInteraction()
     {
         base.OnInteraction();

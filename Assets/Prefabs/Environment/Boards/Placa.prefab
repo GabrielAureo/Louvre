@@ -430,9 +430,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530ce0ca412653d4aae49578af10fe5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToFitHere:
+  layerToFitHere:
     serializedVersion: 2
     m_Bits: 4096
+  rightItemToFitHere: {fileID: 0}
 --- !u!114 &114927083133105844
 MonoBehaviour:
   m_ObjectHideFlags: 1
