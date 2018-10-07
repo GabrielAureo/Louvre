@@ -46,7 +46,7 @@ namespace UnityEditor
 		private static Transform GetObjectInCell(GridLayout grid, Transform parent, Vector3Int position)
 		{
 			int childCount = parent.childCount;
-			Vector3 min = grid.LocalToWorld(grid.CellToLocalInterpolated(position));
+			Vector3 min = grid.LocalToWorld(grid.CellToLocal(position));
 			Vector3 max = grid.LocalToWorld(grid.CellToLocalInterpolated(position + Vector3Int.one));
 			Bounds bounds = new Bounds((max + min)*.5f, max - min);
 
@@ -72,6 +72,7 @@ namespace UnityEditor
 
 		private SerializedProperty m_Prefabs;
 		private SerializedObject m_SerializedObject;
+		
 
 		protected void OnEnable()
 		{

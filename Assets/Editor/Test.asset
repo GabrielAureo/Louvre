@@ -8,10 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d5751a2c961df945a34295ccf5e576d, type: 3}
-  m_Name: Prefab brush
+  m_Script: {fileID: 11500000, guid: a3c1b422f7a51fb42876eb14eb2c12cd, type: 3}
+  m_Name: Test
   m_EditorClassIdentifier: 
-  m_Prefabs:
+  m_prefabs:
   - {fileID: 1727219861191840, guid: 974ae84fa56143240bbf9c55ec4a57d5, type: 2}
-  m_PerlinScale: 0.5
+  - {fileID: 1577494780608974, guid: fd53ac38faf18e44db8c17102ab45deb, type: 2}
+  - {fileID: 1051440387921720, guid: c52ed7e55eab09c46b081dd3d15745fc, type: 2}
+  activePrefab: {fileID: 0}
   m_Z: 0

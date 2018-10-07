@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65962949335352112}
   - component: {fileID: 114130983810940764}
   m_Layer: 8
-  m_Name: Frame
+  m_Name: frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482ca50859048c9428d4f58bba8d9cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardRotation: {x: 0, y: 0, z: 0, w: 0}
+  localPositionWhenInHand: {x: 0, y: 0, z: 0}
+  rotationWhenInHand: {x: 0, y: 0, z: 0}
   description: Um professor.
   onInteraction:
     m_PersistentCalls:
