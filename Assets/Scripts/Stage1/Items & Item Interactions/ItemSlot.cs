@@ -3,27 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public class ItemPlacedInSlotEventArg
+{
+    public GameObject item;
+
+    public ItemPlacedInSlotEventArg(GameObject go)
+    {
+        item = go;
+    }
+}
+
 public class ItemSlot : MonoBehaviour
 {
     public LayerMask layerToFitHere;
     public List<GameObject> rightItemsToFitHere;
 
-    [SerializeField] private UnityEvent OnRightItemFit;
-    [SerializeField] private UnityEvent OnWrongItemFit;
+    [System.Serializable] public class MyItemEvent : UnityEvent<ItemPlacedInSlotEventArg> { }
+
+    [SerializeField] private MyItemEvent OnRightItemFit;
+    [SerializeField] private MyItemEvent OnWrongItemFit;
 
 
-    public void FitItem(GameObject go)
+    public void FitItem(GameObject item)
     {
-        if (go.GetComponent<Rigidbody>()) go.GetComponent<Rigidbody>().isKinematic = true;
-        go.transform.parent = transform;
-        if (go.GetComponent<Item>())
+        if (item.GetComponent<Rigidbody>()) item.GetComponent<Rigidbody>().isKinematic = true;
+        item.transform.parent = transform;
+
+        Item itemScript = item.GetComponent<Item>();
+        if (itemScript)
         {
-            go.transform.localPosition = go.GetComponent<Item>().GetLocalPositionWhenInSlot();
-            go.transform.localScale = go.GetComponent<Item>().GetLocalScaleWhenInSlot();
-            go.transform.localRotation = go.GetComponent<Item>().GetLocalRotationWhenInSlot();
+            item.transform.localPosition = itemScript.GetLocalPositionWhenInSlot();
+            item.transform.localScale = itemScript.GetLocalScaleWhenInSlot();
+            item.transform.localRotation = itemScript.GetLocalRotationWhenInSlot();
         }
 
-        CheckItem(go);
+        CheckItem(item);
     }
 
     private void CheckItem(GameObject item)
@@ -32,11 +46,11 @@ public class ItemSlot : MonoBehaviour
         {
             if (IsThisItemRight(item))
             {
-                OnRightItemFit.Invoke();
+                OnRightItemFit.Invoke(new ItemPlacedInSlotEventArg(item.gameObject));
             }
             else
             {
-                OnWrongItemFit.Invoke();
+                OnWrongItemFit.Invoke(new ItemPlacedInSlotEventArg(item.gameObject));
             }
         }
     }

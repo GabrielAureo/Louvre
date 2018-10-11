@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Name: Prefab brush
   m_EditorClassIdentifier: 
   m_Prefabs:
+<<<<<<< Updated upstream
   - {fileID: 1727219861191840, guid: 974ae84fa56143240bbf9c55ec4a57d5, type: 2}
+=======
+  - {fileID: 1311058742190530, guid: bc1fb6dd94eea4541ab39d0dacce1a10, type: 2}
+>>>>>>> Stashed changes
   m_PerlinScale: 0.5
   m_Z: 0

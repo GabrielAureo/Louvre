@@ -12,15 +12,24 @@ public class PuzzleOne : MonoBehaviour
 
     private int numberOfBoardsDoneRight = 0, numberOfBoardsDoneWrong = 0;
 
-    public void OnRightItemFit()
+    private List<Item> boardsInPuzzleRoom;
+
+    private void Awake()
+    {
+        boardsInPuzzleRoom = new List<Item>();
+    }
+
+    public void OnRightItemFit(ItemPlacedInSlotEventArg arg)
     {
         numberOfBoardsDoneRight++;
+        boardsInPuzzleRoom.Add(arg.item.GetComponent<Item>());
         CheckPuzzleProgress();
     }
 
-    public void OnWrongItemFit()
+    public void OnWrongItemFit(ItemPlacedInSlotEventArg arg)
     {
         numberOfBoardsDoneWrong++;
+        boardsInPuzzleRoom.Add(arg.item.GetComponent<Item>());
         CheckPuzzleProgress();
     }
 
@@ -29,11 +38,13 @@ public class PuzzleOne : MonoBehaviour
         if (numberOfBoardsDoneRight == numberOfBoardsToFill)
         {
             onPuzzleFinished.Invoke();
+            numberOfBoardsDoneRight = 0;
         }
 
         if (numberOfBoardsDoneWrong > 0 && numberOfBoardsDoneRight + numberOfBoardsDoneWrong == numberOfBoardsToFill)
         {
             StartCoroutine(TurnLightsOff());
+            numberOfBoardsDoneWrong = 0;
         }
     }
 
@@ -45,6 +56,7 @@ public class PuzzleOne : MonoBehaviour
         }
 
         yield return new WaitForSeconds(lightsOffTimeInterval);
+
         TurnLightsOn();
     }
 
@@ -53,6 +65,16 @@ public class PuzzleOne : MonoBehaviour
         foreach (TurnLightOnOff light in lights)
         {
             light.TurnOn();
+        }
+
+        ResetBoards();
+    }
+
+    private void ResetBoards()
+    {
+        foreach (Item board in boardsInPuzzleRoom)
+        {
+            board.ResetItem();
         }
     }
 }

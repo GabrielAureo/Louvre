@@ -116,7 +116,6 @@ public class ItemInteraction : MonoBehaviour, ISubject
     private void AttemptToGetItemDescription()
     {
         Vector3 origin = mainCamera.transform.position;
-        //Vector3 origin = transform.position;
         Vector3 direction = mainCamera.transform.forward;
         RaycastHit hitInfo;
 
@@ -153,11 +152,11 @@ public class ItemInteraction : MonoBehaviour, ISubject
         }
     }
 
-    private void FitItemInSlot(GameObject go)
+    private void FitItemInSlot(GameObject slot)
     {
         GameObject item = handScript.LetGoOfItem();
         if (item && item.GetComponent<Collider>()) item.GetComponent<Collider>().enabled = true;
-        if (go.GetComponent<ItemSlot>()) go.GetComponent<ItemSlot>().FitItem(item);
+        if (slot.GetComponent<ItemSlot>()) slot.GetComponent<ItemSlot>().FitItem(item);
         if (inventoryScript.GetCount() > 0) handScript.TakeItem(inventoryScript.Pop());
     }
 
@@ -167,7 +166,6 @@ public class ItemInteraction : MonoBehaviour, ISubject
 
         if (item.GetComponent<Item>()) description = item.GetComponent<Item>().GetDescription();
 
-        //print(description);
         Notify(new NotifyArg(description));
     }
 

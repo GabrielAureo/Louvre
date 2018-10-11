@@ -13,12 +13,14 @@ public class Item : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 originalScale;
     private Quaternion originalRotation;
+    private Transform originalParent;
 
     private void Start()
     {
         originalPosition = transform.localPosition;
         originalScale = transform.localScale;
         originalRotation = transform.localRotation;
+        originalParent = transform.parent;
     }
 
     public void OnInteraction()
@@ -44,5 +46,18 @@ public class Item : MonoBehaviour
     public Quaternion GetLocalRotationWhenInSlot()
     {
         return originalRotation;
+    }
+
+    public void ResetItem()
+    {
+        GetBackToOriginalParent();
+    }
+
+    private void GetBackToOriginalParent()
+    {
+        if (originalParent && originalParent.GetComponent<ItemSlot>())
+        {
+            originalParent.GetComponent<ItemSlot>().FitItem(gameObject);
+        }
     }
 }
