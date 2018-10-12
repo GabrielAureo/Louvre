@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 23732735495920142}
   - component: {fileID: 64997669434932678}
   - component: {fileID: 54173032573700216}
+  - component: {fileID: 114272094221687642}
   m_Layer: 9
   m_Name: Flashlight
   m_TagString: Untagged
@@ -1123,15 +1124,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620696808023626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -1.05, z: -4.42}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.010672366, y: -0.10660495, z: -0.0011443143, w: 0.99424356}
+  m_LocalPosition: {x: 0.2497041, y: -1.0233444, z: -3.4959848}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4007023451907116}
   - {fileID: 4310730481221672}
   m_Father: {fileID: 4272942681747560}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.23, y: -12.24, z: 0}
 --- !u!4 &4116248805216050
 Transform:
   m_ObjectHideFlags: 1
@@ -1235,14 +1236,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888440720003940}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.181, y: 2.419, z: -1.07}
+  m_LocalRotation: {x: -0, y: 0.00000014901161, z: -0, w: -1}
+  m_LocalPosition: {x: -6, y: 2.419, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4272942681747560}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
 --- !u!4 &4252353906158136
 Transform:
   m_ObjectHideFlags: 1
@@ -1374,14 +1375,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038640230346536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.044969793, y: -0.04435898, z: -0.0019988094, w: 0.9980011}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100.000015, y: 100, z: 236.49998}
+  m_LocalScale: {x: 50.600002, y: 50.600002, z: 119.6}
   m_Children:
   - {fileID: 4331583958263204}
   m_Father: {fileID: 4341296660871662}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -5.16, y: -5.09, z: 0}
 --- !u!4 &4341296660871662
 Transform:
   m_ObjectHideFlags: 1
@@ -1389,7 +1390,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371932367862940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: -0.49, z: 0.493}
+  m_LocalPosition: {x: 0.3225709, y: -0.48835802, z: 0.15346462}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4338170253577134}
@@ -2006,7 +2007,7 @@ MeshCollider:
   m_GameObject: {fileID: 1038640230346536}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -2097,6 +2098,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInHand: {fileID: 1038640230346536}
+--- !u!114 &114272094221687642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1038640230346536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67936f9bc957964cb6f48148279f2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchDuration: 0
 --- !u!114 &114310545361289022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2119,14 +2132,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1649b979065a4654c9090adfc9d2bcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationWhenInHand: {x: 0, y: 0, z: 0, w: 0}
+  localPositionWhenInHand: {x: 0, y: 0, z: 0}
+  rotationWhenInHand: {x: -5.16, y: -5.09, z: 0}
   description: Uma lanterna.
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  switchDuration: 0
 --- !u!114 &114735292713728860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2144,7 +2157,7 @@ MonoBehaviour:
   dropHorizontalAdjust: 0.5
   interactableItemLayerMask:
     serializedVersion: 2
-    m_Bits: 4864
+    m_Bits: 4608
   examinableItemLayerMask:
     serializedVersion: 2
     m_Bits: 4864

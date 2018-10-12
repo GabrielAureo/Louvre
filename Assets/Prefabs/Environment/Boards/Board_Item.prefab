@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e136c193a57e4724f8b722ef8ee1cfed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localPositionWhenInHand: {x: -0.3, y: 0.16, z: 0}
-  rotationWhenInHand: {x: -60.212, y: -10.498, z: 26.98}
+  localPositionWhenInHand: {x: -0.31, y: -0.13, z: 0.23}
+  rotationWhenInHand: {x: 60.212, y: -190.498, z: -26.98}
   description: Um texto muito interessante cheio de dicas.
   onInteraction:
     m_PersistentCalls:
