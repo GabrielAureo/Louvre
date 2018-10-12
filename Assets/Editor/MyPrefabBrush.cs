@@ -41,14 +41,14 @@ public class MyPrefabBrush : GridBrushBase
 		
  	private static Transform GetObjectInCell(GridLayout grid, Transform parent, Vector3Int position)
 		{
-			Debug.Log("bounds: "+ grid.GetBoundsLocal(position));
+			//Debug.Log("bounds: "+ grid.GetBoundsLocal(position));
 			int childCount = parent.childCount;
 			Vector3 min = grid.CellToWorld((position));
-			Debug.Log("min = " + min.x + ", " + min.z);
+			//Debug.Log("min = " + min.x + ", " + min.z);
 			Vector3 max = grid.CellToWorld((position + Vector3Int.one));
-			Debug.Log("max = " + max.x + ", " + max.z);
+			//Debug.Log("max = " + max.x + ", " + max.z);
 			Bounds bounds = new Bounds((max + min)*.5f, max - min);
-			Debug.Log(bounds.center+ ", " + bounds.size);
+			//Debug.Log(bounds.center+ ", " + bounds.size);
 			for (int i = 0; i < childCount; i++)
 			{
 				Transform child = parent.GetChild(i);
@@ -110,7 +110,7 @@ public class MyPrefabBrush : GridBrushBase
 		private GUIContent[] GetGUIContentFromItems(){
 			List<GUIContent> guiContents = new List<GUIContent>();
 			for(int i = 0; i < m_Prefabs.arraySize; i++){
-				Debug.Log(m_Prefabs.GetArrayElementAtIndex(i).objectReferenceValue);
+				//Debug.Log(m_Prefabs.GetArrayElementAtIndex(i).objectReferenceValue);
 				GameObject go = (GameObject) m_Prefabs.GetArrayElementAtIndex(i).objectReferenceValue;
 				Texture2D tex = AssetPreview.GetAssetPreview(go);
 				string name = go.name;

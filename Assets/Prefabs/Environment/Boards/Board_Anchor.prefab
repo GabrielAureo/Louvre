@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 33341056955959466}
   - component: {fileID: 23704562887198230}
   - component: {fileID: 65522400348605992}
-  - component: {fileID: 114091617117602300}
+  - component: {fileID: 114464624744245490}
   m_Layer: 11
   m_Name: "Cabe\xE7a"
   m_TagString: Untagged
@@ -113,8 +113,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265755828862910}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -21.75, y: 1.1, z: 1.5}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -26.25, y: 1.1, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4081175817458370}
@@ -122,7 +122,7 @@ Transform:
   - {fileID: 4590058997871578}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4590058997871578
 Transform:
   m_ObjectHideFlags: 1
@@ -286,7 +286,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114091617117602300
+--- !u!114 &114464624744245490
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,48 +294,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588055412682458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530ce0ca412653d4aae49578af10fe5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 19df45bbb6ac3734ca2d0d4a1aa4bf44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layerToFitHere:
     serializedVersion: 2
     m_Bits: 4096
-  rightItemsToFitHere:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  rightItemsToFitHere: []
   OnRightItemFit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: OnRightItemFit
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Board, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: ItemSlot+MyBoardEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: PuzzleItemSlot+MyItemEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnWrongItemFit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: OnWrongItemFit
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Board, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: ItemSlot+MyBoardEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: PuzzleItemSlot+MyItemEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!136 &136658275340660802
 CapsuleCollider:

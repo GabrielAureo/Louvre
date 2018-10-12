@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   m_prefabs:
+  - {fileID: 1584792461295860, guid: ba98b823e6fb5cc4d8680c153309d026, type: 2}
+  - {fileID: 1311058742190530, guid: bc1fb6dd94eea4541ab39d0dacce1a10, type: 2}
+  - {fileID: 1293368739778762, guid: fe299a9108b7365498457cdcb50b241b, type: 2}
   - {fileID: 1727219861191840, guid: 974ae84fa56143240bbf9c55ec4a57d5, type: 2}
-  - {fileID: 1577494780608974, guid: fd53ac38faf18e44db8c17102ab45deb, type: 2}
-  - {fileID: 1051440387921720, guid: c52ed7e55eab09c46b081dd3d15745fc, type: 2}
-  activePrefab: {fileID: 0}
+  activePrefab: {fileID: 1311058742190530, guid: bc1fb6dd94eea4541ab39d0dacce1a10,
+    type: 2}
   m_Z: 0

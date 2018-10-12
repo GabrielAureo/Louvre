@@ -21,6 +21,7 @@ public class PuzzleOne : MonoBehaviour
 
     public void OnRightItemFit(ItemPlacedInSlotEventArg arg)
     {
+        //print("certo");
         numberOfBoardsDoneRight++;
         boardsInPuzzleRoom.Add(arg.item.GetComponent<Item>());
         CheckPuzzleProgress();
@@ -28,6 +29,7 @@ public class PuzzleOne : MonoBehaviour
 
     public void OnWrongItemFit(ItemPlacedInSlotEventArg arg)
     {
+        //print("errado");
         numberOfBoardsDoneWrong++;
         boardsInPuzzleRoom.Add(arg.item.GetComponent<Item>());
         CheckPuzzleProgress();

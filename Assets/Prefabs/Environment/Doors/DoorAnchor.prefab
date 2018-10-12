@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 23979866852207704}
   - component: {fileID: 65871102520562110}
   - component: {fileID: 114114734840664496}
+  - component: {fileID: 208573819953514890}
   m_Layer: 0
   m_Name: Porta
   m_TagString: Untagged
@@ -57,6 +58,7 @@ GameObject:
   - component: {fileID: 23856350099542290}
   - component: {fileID: 65834551089333896}
   - component: {fileID: 65190032511295502}
+  - component: {fileID: 208964215740341226}
   m_Layer: 0
   m_Name: Parede_Porta
   m_TagString: Untagged
@@ -87,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 1336438229717980}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.97, y: 0.2000002, z: 1.65}
+  m_LocalScale: {x: 1.97, y: 0.2000002, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4590526213754330}
   m_RootOrder: 1
@@ -112,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1244811897831340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15, y: 0, z: 9}
+  m_LocalPosition: {x: -9, y: 0, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4608976379623700}
@@ -129,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 1461396415595898}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.97, y: 0.2000002, z: 1.65}
+  m_LocalScale: {x: 1.97, y: 0.4, z: 1.5}
   m_Children: []
   m_Father: {fileID: 4590526213754330}
   m_RootOrder: 0
@@ -228,8 +230,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0738348, y: 2.1476207, z: 3.556001}
-  m_Center: {x: -0.9870817, y: -8.208149e-14, z: 1.7780005}
+  m_Size: {x: 1.0738348, y: 1.2172433, z: 3.5560007}
+  m_Center: {x: -0.9870817, y: 0.04153654, z: 1.7780006}
 --- !u!65 &65834551089333896
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -240,8 +242,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.018756, y: 2.1476207, z: 3.556001}
-  m_Center: {x: 1.0146221, y: -8.208149e-14, z: 1.7780005}
+  m_Size: {x: 1.018756, y: 1.3173268, z: 3.5560007}
+  m_Center: {x: 1.0146221, y: -0.056341603, z: 1.7780006}
 --- !u!65 &65871102520562110
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -268,3 +270,33 @@ MonoBehaviour:
   hinge: {fileID: 4566893145662446}
   angleToRotate: 90
   durationOfRotation: 2
+--- !u!208 &208573819953514890
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336438229717980}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.51600003, y: 0.07300001, z: 1.093}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 1.093}
+  m_TimeToStationary: 0.5
+--- !u!208 &208964215740341226
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461396415595898}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.524, y: 1.074, z: 1.7780001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 1.7780001}
+  m_TimeToStationary: 0.5

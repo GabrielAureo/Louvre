@@ -156,7 +156,8 @@ public class ItemInteraction : MonoBehaviour, ISubject
     {
         GameObject item = handScript.LetGoOfItem();
         if (item && item.GetComponent<Collider>()) item.GetComponent<Collider>().enabled = true;
-        if (slot.GetComponent<ItemSlot>()) slot.GetComponent<ItemSlot>().FitItem(item);
+        if (slot.GetComponent<PuzzleItemSlot>()) slot.GetComponent<PuzzleItemSlot>().FitItem(item);
+        else if (slot.GetComponent<ItemSlot>()) slot.GetComponent<ItemSlot>().FitItem(item);
         if (inventoryScript.GetCount() > 0) handScript.TakeItem(inventoryScript.Pop());
     }
 
