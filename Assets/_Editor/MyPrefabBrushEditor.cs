@@ -1,8 +1,7 @@
-﻿using System.Collections;
+﻿# if UNITY_EDITOR
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System;
 
 [CustomEditor(typeof(MyPrefabBrush))]
 public class MyPrefabBrushEditor : GridBrushEditorBase
@@ -140,3 +139,4 @@ public class MyPrefabBrushEditor : GridBrushEditorBase
 	}
 }
 //iahala
+#endif

@@ -29,4 +29,9 @@ public class GameManager : MonoBehaviour {
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
+
+    public static void OnPlayerDied()
+    {
+        print("gamemanager.onplayerdied");
+    }
 }

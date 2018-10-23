@@ -39,8 +39,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4164694169704558}
   - component: {fileID: 108648617165388688}
+  - component: {fileID: 114744902422083296}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: SurroundingLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 124500161470521444}
   - component: {fileID: 114579319469011470}
   m_Layer: 0
-  m_Name: FirstPersonCharacter
+  m_Name: FPSCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,15 +72,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460553247946278}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7, z: 0}
+  m_LocalRotation: {x: -0, y: 0.00000014901161, z: -0, w: -1}
+  m_LocalPosition: {x: -6, y: 2.05, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4889328932979540}
   - {fileID: 4164694169704558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
 --- !u!4 &4164694169704558
 Transform:
   m_ObjectHideFlags: 1
@@ -87,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697755431007206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.71, z: 0}
+  m_LocalPosition: {x: 0, y: 1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4032880632617970}
@@ -100,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782292340169514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: 0.8, z: -1.14}
+  m_LocalPosition: {x: -0.29999986, y: 0.724, z: -0.4999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4032880632617970}
@@ -128,7 +129,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 83
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -273,8 +274,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.34
-  m_Range: 10.99
+  m_Intensity: 1
+  m_Range: 6.23
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -295,7 +296,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 7.15
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -435,6 +436,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 827089a791095cb40a8b803a3de45445, type: 2}
+--- !u!114 &114744902422083296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1697755431007206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67936f9bc957964cb6f48148279f2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchDuration: 0.5
 --- !u!124 &124500161470521444
 Behaviour:
   m_ObjectHideFlags: 1
@@ -452,8 +465,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 4.1
-  m_Radius: 1.06
+  m_Height: 3.52
+  m_Radius: 0.65
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

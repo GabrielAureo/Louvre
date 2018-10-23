@@ -76,7 +76,8 @@ public class Item : MonoBehaviour
 
     public ItemSlot GetCurrentSlot()
     {
-        return transform.parent.GetComponent<ItemSlot>();
+        if (transform.parent && transform.parent.GetComponent<ItemSlot>()) return transform.parent.GetComponent<ItemSlot>();
+        else return null;
     }
 
     public static void ExchangeSlots(Item item1, Item item2)

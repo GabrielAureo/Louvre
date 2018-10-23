@@ -18,8 +18,8 @@ TagManager:
   - Player
   - ItemSlot
   - Board
-  - 
-  - 
+  - Enemy
+  - LightedArea
   - 
   - 
   - 

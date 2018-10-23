@@ -22,6 +22,8 @@ public class PuzzleOne : MonoBehaviour
     [SerializeField] private List<GameObject> lightAndShadowsPrefabs;
     [Tooltip("Gêneros de quadros possíveis de aparecerem no puzzle.")]
     [SerializeField] private List<PaintingGenre> listOfGenres;
+    [Tooltip("Referência para o GameObject do inimigo.")]
+    [SerializeField] private GameObject enemy;
 
     [Tooltip("Âncoras dos quadros da sala puzzle.")]
     [SerializeField] private List<GameObject> puzzlePaintingAnchors;
@@ -36,13 +38,11 @@ public class PuzzleOne : MonoBehaviour
     [SerializeField] private UnityEvent onPuzzleFinished;
 
     private int numberOfBoardsDoneRight = 0, numberOfBoardsDoneWrong = 0;
-
     private List<Item> boardsInPuzzleRoom;
     private List<GameObject> paintingsInPuzzleRoom;
-
     private bool hasPuzzleFinished = false;
-
     private List<PaintingGenre> genresInTheLastTry;
+    private EnemyOneSpawner spawnerScript;
 
     // DEBUG
     private void Update()
@@ -58,11 +58,15 @@ public class PuzzleOne : MonoBehaviour
         boardsInPuzzleRoom = new List<Item>();
         paintingsInPuzzleRoom = new List<GameObject>();
         genresInTheLastTry = new List<PaintingGenre>();
+        spawnerScript = GetComponent<EnemyOneSpawner>();
+        spawnerScript.SetUp(enemy);
     }
 
     private void Start()
     {
         ResetPaintings();
+
+        if (enemy.activeSelf) enemy.SetActive(false);
     }
 
     public void OnRightItemFit(GameObjectEventArg arg)
@@ -128,6 +132,7 @@ public class PuzzleOne : MonoBehaviour
     private void LosePuzzle()
     {
         StartCoroutine(TurnLightsOff());
+        SpawnEnemy();
         //hasPuzzleFinished = true;
     }
 
@@ -228,5 +233,10 @@ public class PuzzleOne : MonoBehaviour
             case PaintingGenre.Portrait:        return portraitPrefabs[Random.Range(0, portraitPrefabs.Count)];
             default:                            return null;
         }
+    }
+
+    private void SpawnEnemy()
+    {
+        spawnerScript.SpawnEnemy();
     }
 }
