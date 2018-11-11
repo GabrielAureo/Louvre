@@ -33,6 +33,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                 case BuildTarget.Android:
                 case BuildTarget.iOS:
                 //case BuildTarget.PSM: 
+# pragma warning disable 0618
                 case BuildTarget.Tizen: 
                 case BuildTarget.WSAPlayer: 
                     EditorUtility.DisplayDialog("Mobile Input",
@@ -93,6 +94,7 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                 BuildTargetGroup.Android,
                 BuildTargetGroup.iOS,
                 //BuildTargetGroup.PSM, 
+# pragma warning disable 0618
                 BuildTargetGroup.Tizen,
                 BuildTargetGroup.WSA 
             };

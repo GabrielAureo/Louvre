@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Tilemaps;
+using System.Linq;
 
 [CustomEditor(typeof(MyPrefabBrush))]
 public class MyPrefabBrushEditor : GridBrushEditorBase
@@ -102,7 +104,6 @@ public class MyPrefabBrushEditor : GridBrushEditorBase
 		bool press = GUI.Button(new Rect(new Vector2(selRect.xMax - (size/2), selRect.yMin), size * Vector2.one), "x", delStyle) ;
 		GUI.backgroundColor = defaultBg;
 		GUI.contentColor = defaultTxt;
-		Debug.Log(press);
 		return press;
 	}
 
@@ -137,6 +138,14 @@ public class MyPrefabBrushEditor : GridBrushEditorBase
 		}
 		return null;
 	}
+
+	public override GameObject[] validTargets
+		{
+			get
+			{
+				return GameObject.FindObjectsOfType<Tilemap>().Select(x => x.gameObject).ToArray();
+			}
+		}
 }
 //iahala
 #endif

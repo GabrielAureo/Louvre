@@ -1,12 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class Painting : Item
+public enum PaintingGenre { None, Madonna, Portrait, Landscape, Mythology, Altar, LightAndShadows }
+
+public class Painting : MonoBehaviour, Readable
 {
     //public Board myBoard;
     //public PuzzleOneItemSlot myBoardSlot;
     public PaintingGenre myGenre;
+    [SerializeField] PaintingData data;
+
+    public string GetDescription(){
+        string str = data.paintingName + ( data.year != "" ? " (" + data.year + ")" : "" ) + ( data.author != "" ? "\nAutor: " + data.author : "" );
+        if(data.description != ""){
+            str = str + "\n" + data.description;
+        }
+        return str;
+    }
 
     //private new void Start()
     //{
@@ -27,28 +39,28 @@ public class Painting : Item
     //}
 
     /*
-	[SerializeField] Texture2D painting;
-	MeshRenderer mesh;
+  [SerializeField] Texture2D painting;
+  MeshRenderer mesh;
 
-	// Use this for initialization
-	void Start () {
-		mesh = GetComponentInChildren<MeshRenderer>();
+  // Use this for initialization
+  void Start () {
+    mesh = GetComponentInChildren<MeshRenderer>();
 
-		var ratio = new Vector3((float)painting.height/painting.width,(float)painting.width/painting.height, 1);
+    var ratio = new Vector3((float)painting.height/painting.width,(float)painting.width/painting.height, 1);
 
-		
-		//var targetSize = new Vector3(painting.width, painting.height, mesh.transform.localScale.z);
-		transform.localScale = ratio;
-		Debug.Log(mesh.bounds);		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    
+    //var targetSize = new Vector3(painting.width, painting.height, mesh.transform.localScale.z);
+    transform.localScale = ratio;
+    Debug.Log(mesh.bounds);    
+  }
+  
+  // Update is called once per frame
+  void Update () {
+    
+  }
 
-	void OnValidate(){
+  void OnValidate(){
 
-	}
-	*/
+  }
+  */
 }

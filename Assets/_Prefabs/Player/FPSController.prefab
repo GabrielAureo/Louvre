@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 114203884301146954}
   - component: {fileID: 54547613396003046}
   - component: {fileID: 82961337750142234}
-  m_Layer: 0
+  - component: {fileID: 114794581922981564}
+  m_Layer: 10
   m_Name: FPSController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,6 +60,7 @@ GameObject:
   - component: {fileID: 81381662050856602}
   - component: {fileID: 124500161470521444}
   - component: {fileID: 114579319469011470}
+  - component: {fileID: 114968169694809318}
   m_Layer: 0
   m_Name: FPSCamera
   m_TagString: MainCamera
@@ -179,7 +181,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -420,8 +422,18 @@ MonoBehaviour:
     BobAmount: 0.1
   m_StepInterval: 5
   m_FootstepSounds:
-  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
-  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 1daf6c39799126b4b97cc481597ae7a8, type: 3}
+  - {fileID: 8300000, guid: 1ef283403ff54d04b9ff6a90fa2d3cfd, type: 3}
+  - {fileID: 8300000, guid: b44dbe0930e72da41a391ca6e9f1c518, type: 3}
+  - {fileID: 8300000, guid: 9114d04ef654a9a4e8fb9c68f258c7e9, type: 3}
+  - {fileID: 8300000, guid: 6995412af939896478554971fe233f66, type: 3}
+  m_PantingSounds:
+  - {fileID: 8300000, guid: 7f480e1d7137d80469e11a02c8b0bbdb, type: 3}
+  - {fileID: 8300000, guid: ba27fbe1654caf74bbf863912349dfad, type: 3}
+  - {fileID: 8300000, guid: 7ce1e38d420c06d4f9f9e8bcb2b78636, type: 3}
+  - {fileID: 8300000, guid: 7ccb4aaec9e198d4184e08a2f82908c8, type: 3}
+  - {fileID: 8300000, guid: c7a32692bd4225645893cc2076e04377, type: 3}
+  - {fileID: 8300000, guid: d4eb8c573cbc6364ca73d44b67967197, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!114 &114579319469011470
@@ -447,7 +459,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67936f9bc957964cb6f48148279f2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: {fileID: 0}
   switchDuration: 0.5
+--- !u!114 &114794581922981564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460553247946278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cf90f7e17d21f45b1904274c727495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114968169694809318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782292340169514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eed1d9cbe64423499f1fefc0ce50417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Resolution: 0
+  DefaultSpotCookie: {fileID: 2800000, guid: b6944b8ec29ad124c9ebbe7b111fdfd5, type: 3}
 --- !u!124 &124500161470521444
 Behaviour:
   m_ObjectHideFlags: 1

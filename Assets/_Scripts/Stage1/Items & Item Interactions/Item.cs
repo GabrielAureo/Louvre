@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, Readable
 {
     public Vector3 localPositionWhenInHand;
     public Vector3 rotationWhenInHand;
-    [SerializeField] private string description;
+    
     [SerializeField] private UnityEvent onInteraction;
 
     private Vector3 originalPosition;
     private Vector3 originalScale;
     private Quaternion originalRotation;
     private Transform originalParent;
+
+    [TextArea]
+    [SerializeField] private string description = "Shoshite toki wa ugoki desu.";
 
     public void Start()
     {

@@ -40,12 +40,12 @@ public class ItemInteraction : MonoBehaviour, ISubject
             if (handScript.ItemInHand && handScript.ItemInHand.GetComponent<Flashlight>()) handScript.ItemInHand.GetComponent<Flashlight>().TurnOnOff();
         }
 
-        if (CrossPlatformInputManager.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             AttemptToGetItem();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (!AttemptToFitItemInSlot() && handScript.IsHolding())
             {
@@ -65,13 +65,29 @@ public class ItemInteraction : MonoBehaviour, ISubject
         if (Input.GetKeyDown(KeyCode.Alpha0)) AttemptToSwitchItemInHand(10);
     }
 
+    private void AttemptToGetItemDescription()
+    {
+        RaycastHit hitInfo;
+        if (PerformRaycast(out hitInfo, examinableItemLayerMask))
+        {
+            GetItemDescription(hitInfo.collider.gameObject);
+        }
+    }
+
+    private void GetItemDescription(GameObject item)
+    {
+        string description = null;
+
+        if (item.GetComponent<Item>()) description = item.GetComponent<Item>().GetDescription();
+        else if (item.GetComponent<Painting>()) description = item.GetComponent<Painting>().GetDescription();
+
+        Notify(new NotifyArg(description));
+    }
+
     private void AttemptToGetItem()
     {
-        Vector3 origin = mainCamera.transform.position;
-        Vector3 direction = mainCamera.transform.forward;
         RaycastHit hitInfo;
-
-        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, interactableItemLayerMask) && hitInfo.collider.gameObject != null)
+        if (PerformRaycast(out hitInfo, interactableItemLayerMask))
         {
             GetItem(hitInfo.collider.gameObject);
         }
@@ -113,27 +129,10 @@ public class ItemInteraction : MonoBehaviour, ISubject
         inventoryScript.AddItemAt(itemHeld, inventoryIndex - 1);
     }
 
-    private void AttemptToGetItemDescription()
-    {
-        Vector3 origin = mainCamera.transform.position;
-        Vector3 direction = mainCamera.transform.forward;
-        RaycastHit hitInfo;
-
-        Debug.DrawRay(origin, direction * maxReach, Color.red, 0.3f);
-
-        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, examinableItemLayerMask) && hitInfo.collider.gameObject != null)
-        {
-            GetItemDescription(hitInfo.collider.gameObject);
-        }
-    }
-
     private bool AttemptToFitItemInSlot()
     {
-        Vector3 origin = mainCamera.transform.position;
-        Vector3 direction = mainCamera.transform.forward;
         RaycastHit hitInfo;
-        
-        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, slotLayerMask) && hitInfo.collider.gameObject != null)
+        if (PerformRaycast(out hitInfo, slotLayerMask))
         {
             LayerMask itemLayer = hitInfo.collider.gameObject.GetComponent<ItemSlot>().layerToFitHere;
             if (itemLayer == (itemLayer | (1 << handScript.ItemInHand.layer)))
@@ -161,15 +160,6 @@ public class ItemInteraction : MonoBehaviour, ISubject
         if (inventoryScript.GetCount() > 0) handScript.TakeItem(inventoryScript.Pop());
     }
 
-    private void GetItemDescription(GameObject item)
-    {
-        string description = null;
-
-        if (item.GetComponent<Item>()) description = item.GetComponent<Item>().GetDescription();
-
-        Notify(new NotifyArg(description));
-    }
-
     public void AddObserver(IObserver o)
     {
         observers.Add(o);
@@ -185,6 +175,23 @@ public class ItemInteraction : MonoBehaviour, ISubject
         foreach (IObserver o in observers)
         {
             o.OnNotify(arg);
+        }
+    }
+
+    private bool PerformRaycast(out RaycastHit hitInfo, LayerMask layer)
+    {
+        Vector3 origin = mainCamera.transform.position;
+        Vector3 direction = mainCamera.transform.forward;
+
+        Debug.DrawRay(origin, direction * maxReach, Color.red, 0.3f);
+
+        if (Physics.Raycast(origin, direction, out hitInfo, maxReach, layer) && hitInfo.collider.gameObject != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

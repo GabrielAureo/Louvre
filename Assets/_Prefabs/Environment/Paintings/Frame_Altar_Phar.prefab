@@ -197,12 +197,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482ca50859048c9428d4f58bba8d9cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localPositionWhenInHand: {x: 0, y: 0, z: 0}
-  rotationWhenInHand: {x: 0, y: 0, z: 0}
-  description: Um professor.
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   myGenre: 5
+  data: {fileID: 0}

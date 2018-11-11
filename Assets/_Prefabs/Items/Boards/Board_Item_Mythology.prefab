@@ -126,11 +126,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPositionWhenInHand: {x: -0.31, y: -0.13, z: 0.23}
   rotationWhenInHand: {x: 60.212, y: -190.498, z: -26.98}
-  description: Um texto muito interessante cheio de dicas.
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  originalParent: {fileID: 0}
+  description: "Apesar de n\xE3o mais louvados, seus feitos foram eternizados."
   myGenre: 4

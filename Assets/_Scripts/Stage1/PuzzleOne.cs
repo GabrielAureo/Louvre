@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 
-public enum PaintingGenre { None, Madonna, Portrait, Landscape, Mythology, Altar, LightAndShadows }
-
 public class PuzzleOne : MonoBehaviour
 {
     [Tooltip("Prefabs dos quadros do tipo Madonna que poderão aparecer na sala puzzle.")]
@@ -58,8 +56,7 @@ public class PuzzleOne : MonoBehaviour
         boardsInPuzzleRoom = new List<Item>();
         paintingsInPuzzleRoom = new List<GameObject>();
         genresInTheLastTry = new List<PaintingGenre>();
-        spawnerScript = GetComponent<EnemyOneSpawner>();
-        spawnerScript.SetUp(enemy);
+        spawnerScript = enemy.GetComponent<EnemyOneSpawner>();
     }
 
     private void Start()
@@ -132,8 +129,6 @@ public class PuzzleOne : MonoBehaviour
     private void LosePuzzle()
     {
         StartCoroutine(TurnLightsOff());
-        SpawnEnemy();
-        //hasPuzzleFinished = true;
     }
 
     IEnumerator TurnLightsOff()
@@ -145,6 +140,7 @@ public class PuzzleOne : MonoBehaviour
 
         yield return new WaitForSeconds(lightsOffTimeInterval);
 
+        SpawnEnemy();
         TurnLightsOn();
     }
 

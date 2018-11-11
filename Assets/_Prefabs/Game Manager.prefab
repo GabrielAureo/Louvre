@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b658fc6e4b8334f8b851dbd4174077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  youDiedBG: {fileID: 0}
+  youDiedText: {fileID: 0}
 --- !u!114 &114776795819452146
 MonoBehaviour:
   m_ObjectHideFlags: 1

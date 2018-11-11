@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 64607550125138550}
   - component: {fileID: 54955009436420914}
   - component: {fileID: 114263031874611418}
+  - component: {fileID: 82750316616753464}
   m_Layer: 9
   m_Name: Flashlight
   m_TagString: Untagged
@@ -55,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141740881321612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: 0.00416}
+  m_LocalPosition: {x: -0.019302763, y: 0.012702889, z: 0.0049768803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4988031032033344}
@@ -67,14 +68,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1458305785957962}
-  m_LocalRotation: {x: -0.044969793, y: -0.04435898, z: -0.0019988094, w: 0.9980011}
+  m_LocalRotation: {x: -0.02187221, y: 0.038895383, z: -0.002809516, w: 0.999}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50.600002, y: 50.600002, z: 119.6}
   m_Children:
   - {fileID: 4820168832853400}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -5.16, y: -5.09, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.492, y: 4.4680004, z: -0.42000002}
 --- !u!23 &23367656310416430
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -149,6 +150,101 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: eb911a345bb6a1540876c49a3cccf7e0, type: 3}
+--- !u!82 &82750316616753464
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458305785957962}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!108 &108364224226765064
 Light:
   m_ObjectHideFlags: 1
@@ -171,7 +267,7 @@ Light:
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 54d5e85f7b6da024c83e0a3d05e028ed, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -197,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67936f9bc957964cb6f48148279f2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: b0e315c693b6de349b2ec392aa1c0dc4, type: 3}
   switchDuration: 0
 --- !u!114 &114825838531976502
 MonoBehaviour:
@@ -210,10 +307,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localPositionWhenInHand: {x: 0, y: 0, z: 0}
-  rotationWhenInHand: {x: -5.16, y: -5.09, z: 0}
-  description: Uma lanterna.
+  rotationWhenInHand: {x: -2.492, y: 4.468, z: -0.42}
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  description: Uma lanterna.

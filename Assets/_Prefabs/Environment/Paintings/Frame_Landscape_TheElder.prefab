@@ -199,11 +199,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPositionWhenInHand: {x: 0, y: 0, z: 0}
   rotationWhenInHand: {x: 0, y: 0, z: 0}
-  description: Um quadro.
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  originalParent: {fileID: 0}
+  description: Um quadro.
   myGenre: 3
+  data: {fileID: 11400000, guid: 418776872f790d54ebd1e94ebec5fc03, type: 2}

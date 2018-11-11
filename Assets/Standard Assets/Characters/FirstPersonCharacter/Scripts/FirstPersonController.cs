@@ -25,6 +25,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private LerpControlledBob m_JumpBob = new LerpControlledBob();
         [SerializeField] private float m_StepInterval;
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
+        [SerializeField] private AudioClip[] m_PantingSounds;     // an array of panting sounds that will be rancomly selected form.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
@@ -39,6 +40,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Vector3 m_OriginalCameraPosition;
         private float m_StepCycle;
         private float m_NextStep;
+        private float m_PantingCycle;
+        private float m_NextPanting;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
@@ -52,6 +55,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_HeadBob.Setup(m_Camera, m_StepInterval);
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle/2f;
+            m_PantingCycle = 0f;
+            m_NextPanting = m_PantingCycle/2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
@@ -130,6 +135,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 
+            if (!m_IsWalking)
+            {
+                ProgressPantingCycle(speed);
+            }
+
             m_MouseLook.UpdateCursorLock();
         }
 
@@ -176,6 +186,35 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_FootstepSounds[0] = m_AudioSource.clip;
         }
 
+        private void ProgressPantingCycle(float speed)
+        {
+            if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
+            {
+                m_PantingCycle += (m_CharacterController.velocity.magnitude + speed) *
+                             Time.fixedDeltaTime * 0.3f;
+            }
+
+            if (!(m_PantingCycle > m_NextPanting))
+            {
+                return;
+            }
+
+            m_NextPanting = m_PantingCycle + m_StepInterval;
+
+            PlayPantingAudio();
+        }
+
+        private void PlayPantingAudio()
+        {
+            // pick & play a random panting sound from the array,
+            // excluding sound at index 0
+            int n = Random.Range(1, m_PantingSounds.Length);
+            m_AudioSource.clip = m_PantingSounds[n];
+            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+            // move picked sound to index 0 so it's not picked next time
+            m_PantingSounds[n] = m_PantingSounds[0];
+            m_PantingSounds[0] = m_AudioSource.clip;
+        }
 
         private void UpdateCameraPosition(float speed)
         {
