@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class RotatingDoor : Door
 {
@@ -15,8 +16,20 @@ public class RotatingDoor : Door
 
     public void Unlock()
     {
-        StartCoroutine("OpenDoor");
-        OpenDoor();
+        if (!isOpen)
+        {
+            StartCoroutine("OpenDoor");
+            isOpen = true;
+        }
+    }
+
+    public void Lock()
+    {
+        if (isOpen)
+        {
+            StartCoroutine("CloseDoor");
+            isOpen = false;
+        }
     }
 
     private IEnumerator OpenDoor()
@@ -24,6 +37,17 @@ public class RotatingDoor : Door
         while (transform.rotation.eulerAngles.y < angleToRotate)
         {
             transform.RotateAround(hinge.position, Vector3.up, angleToRotate * Time.deltaTime * durationOfRotation);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private IEnumerator CloseDoor()
+    {
+        float startAngle = transform.rotation.eulerAngles.y;
+
+        while (transform.rotation.eulerAngles.y > 0 && transform.rotation.eulerAngles.y <= startAngle)
+        {
+            transform.RotateAround(hinge.position, Vector3.up, - angleToRotate * Time.deltaTime * durationOfRotation);
             yield return new WaitForEndOfFrame();
         }
     }
