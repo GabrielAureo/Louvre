@@ -5,18 +5,54 @@ using UnityEngine.AI;
 
 public class MoveTo : MonoBehaviour
 {
-    [SerializeField] private Transform goal;
+    private Transform goal;
 
     private NavMeshAgent agent;
+    private NavMeshPath path;
+
+    public Transform Goal
+    {
+        get
+        {
+            return goal;
+        }
+
+        set
+        {
+            goal = value;
+        }
+    }
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(goal.position);
+
+        path = new NavMeshPath();
+        agent.CalculatePath(goal.position, path);
+        agent.SetPath(path);
+
+        //agent.SetDestination(goal.position);
+
+        StartCoroutine(UpdateGoal());
     }
 
-    private void Update()
+    private IEnumerator UpdateGoal()
     {
-        agent.SetDestination(goal.position);
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            //print(agent.pathStatus);
+
+            agent.CalculatePath(goal.position, path);
+            agent.SetPath(path);
+
+            //agent.ResetPath();
+            //agent.SetDestination(goal.position);
+        }
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 }

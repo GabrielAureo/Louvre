@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4215139759912550}
   - component: {fileID: 114702313579157790}
   - component: {fileID: 114219706488587614}
-  - component: {fileID: 114776795819452146}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -87,7 +86,13 @@ MonoBehaviour:
   lightAndShadowsPrefabs:
   - {fileID: 1185067282601930, guid: 41c26c57440cc5745b350b1c283b19dd, type: 2}
   listOfGenres: 010000000200000003000000040000000500000006000000
-  enemy: {fileID: 0}
+  enemyPrefab: {fileID: 1787324846728472, guid: 85553c4451ca1ad44b91738b05615f9c,
+    type: 2}
+  enemySpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   puzzlePaintingAnchors:
   - {fileID: 0}
   - {fileID: 0}
@@ -96,6 +101,7 @@ MonoBehaviour:
   numberOfBoardsToFill: 4
   lightsOffTimeInterval: 1
   lights:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -127,20 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b658fc6e4b8334f8b851dbd4174077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  youDiedBG: {fileID: 0}
-  youDiedText: {fileID: 0}
---- !u!114 &114776795819452146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1687990222961112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93714b6bf03e8894f871c7b955ddb8dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  gameOver: {fileID: 0}
+  pause: {fileID: 0}

@@ -20,12 +20,12 @@ public class PuzzleOne : MonoBehaviour
     [SerializeField] private List<GameObject> lightAndShadowsPrefabs;
     [Tooltip("Gêneros de quadros possíveis de aparecerem no puzzle.")]
     [SerializeField] private List<PaintingGenre> listOfGenres;
-    [Tooltip("Referência para o GameObject do inimigo.")]
-    [SerializeField] private GameObject enemy;
-
+    [Tooltip("Referência para a prefab do inimigo.")]
+    [SerializeField] private GameObject enemyPrefab;
+    [Tooltip("Pontos onde o inimigo pode nascer.")]
+    [SerializeField] private List<Transform> enemySpawnPoints;
     [Tooltip("Âncoras dos quadros da sala puzzle.")]
     [SerializeField] private List<GameObject> puzzlePaintingAnchors;
-
     [Tooltip("Número de plaquetas que precisam ser preenchidas no puzzle.")]
     [SerializeField] private int numberOfBoardsToFill;
     [Tooltip("Tempo que as luzes ficam apagadas quando o jogador erra o puzzle.")]
@@ -40,7 +40,7 @@ public class PuzzleOne : MonoBehaviour
     private List<GameObject> paintingsInPuzzleRoom;
     private bool hasPuzzleFinished = false;
     private List<PaintingGenre> genresInTheLastTry;
-    private EnemyOneSpawner spawnerScript;
+    private GameObject player;
 
     // DEBUG
     private void Update()
@@ -56,14 +56,12 @@ public class PuzzleOne : MonoBehaviour
         boardsInPuzzleRoom = new List<Item>();
         paintingsInPuzzleRoom = new List<GameObject>();
         genresInTheLastTry = new List<PaintingGenre>();
-        spawnerScript = enemy.GetComponent<EnemyOneSpawner>();
+        player = FindObjectOfType<CharacterController>().gameObject;
     }
 
     private void Start()
     {
         ResetPaintings();
-
-        if (enemy.activeSelf) enemy.SetActive(false);
     }
 
     public void OnRightItemFit(GameObjectEventArg arg)
@@ -233,6 +231,10 @@ public class PuzzleOne : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        spawnerScript.SpawnEnemy();
+        GameObject enemy = Instantiate(enemyPrefab);
+        enemy.GetComponent<MoveTo>().Goal = player.transform;
+        enemy.GetComponent<EnemyOneSpawner>().Player = player;
+        enemy.GetComponent<EnemyOneSpawner>().SpawnPoints = enemySpawnPoints;
+        enemy.GetComponent<EnemyOneSpawner>().SpawnEnemy();
     }
 }

@@ -9,6 +9,7 @@ public class Killable : MonoBehaviour
     {
         GetComponent<CharacterController>().enabled = false;
         GetComponent<FirstPersonController>().enabled = false;
+        transform.parent.GetComponentInChildren<HandSmoothMovement>().enabled = false;
         FindObjectOfType<GameManager>().OnPlayerDied();
     }
 }

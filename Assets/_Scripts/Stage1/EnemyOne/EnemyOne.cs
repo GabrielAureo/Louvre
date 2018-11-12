@@ -9,11 +9,12 @@ public class EnemyOne : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            collision.gameObject.GetComponent<Killable>().Die();
-
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<MoveTo>().enabled = false;
             GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Animator>().enabled = false;
+
+            collision.gameObject.GetComponent<Killable>().Die();
         }
     }
 
@@ -21,13 +22,7 @@ public class EnemyOne : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("LightedArea"))
         {
-            Restart();
+            Destroy(gameObject);
         }
     }
-
-    private void Restart()
-    {
-        gameObject.SetActive(false);
-    }
-
 }

@@ -6,17 +6,43 @@ using UnityEngine.AI;
 [RequireComponent (typeof(EnemyOne))]
 public class EnemyOneSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private List<Transform> spawnPoints;
+    private List<Transform> spawnPoints;
+
+    private GameObject player;
+
+    public GameObject Player
+    {
+        get
+        {
+            return player;
+        }
+
+        set
+        {
+            player = value;
+        }
+    }
+
+    public List<Transform> SpawnPoints
+    {
+        get
+        {
+            return spawnPoints;
+        }
+
+        set
+        {
+            spawnPoints = value;
+        }
+    }
 
     public void SpawnEnemy()
     {
         if (spawnPoints.Count > 0)
         {
             GetComponent<NavMeshAgent>().enabled = false;
-            //Transform spawnPoint = spawnPoints[ Random.Range(0, spawnPoints.Count) ];
             Transform spawnPoint = GetNearestSpawnPoint();
-            print(spawnPoint.gameObject.name);
+            //print(spawnPoint.gameObject.name);
             transform.position = spawnPoint.position;
             gameObject.SetActive(true);
             GetComponent<NavMeshAgent>().enabled = true;
