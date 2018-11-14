@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820168832853400}
   - component: {fileID: 108364224226765064}
+  - component: {fileID: 114700234899933780}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141740881321612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.019302763, y: 0.012702889, z: 0.0049768803}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0049768803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4988031032033344}
@@ -295,6 +296,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: b0e315c693b6de349b2ec392aa1c0dc4, type: 3}
   switchDuration: 0
+--- !u!114 &114700234899933780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141740881321612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9c6e13669ba3c4e914c151814b027c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114825838531976502
 MonoBehaviour:
   m_ObjectHideFlags: 1

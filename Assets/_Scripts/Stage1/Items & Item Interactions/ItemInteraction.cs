@@ -183,7 +183,7 @@ public class ItemInteraction : MonoBehaviour, ISubject
         Vector3 origin = mainCamera.transform.position;
         Vector3 direction = mainCamera.transform.forward;
 
-        Debug.DrawRay(origin, direction * maxReach, Color.red, 0.3f);
+        //Debug.DrawRay(origin, direction * maxReach, Color.red, 0.3f);
 
         if (Physics.Raycast(origin, direction, out hitInfo, maxReach, layer) && hitInfo.collider.gameObject != null)
         {

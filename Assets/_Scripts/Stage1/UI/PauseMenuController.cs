@@ -65,6 +65,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Menu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
@@ -77,11 +78,15 @@ public class PauseMenuController : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        FindObjectOfType<HandSmoothMovement>().enabled = true;
     }
 
     private void UnlockCursor()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        FindObjectOfType<HandSmoothMovement>().enabled = false;
     }
 }
