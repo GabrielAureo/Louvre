@@ -42,10 +42,10 @@ public class EnemyOneSpawner : MonoBehaviour
         {
             GetComponent<NavMeshAgent>().enabled = false;
             Transform spawnPoint = GetNearestSpawnPoint();
-            //print(spawnPoint.gameObject.name);
             transform.position = spawnPoint.position;
             gameObject.SetActive(true);
             GetComponent<NavMeshAgent>().enabled = true;
+            GetComponent<EnemyOne>().MySpawnPoint = spawnPoint;
         }
     }
 

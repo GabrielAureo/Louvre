@@ -110,6 +110,7 @@ public class ItemInteraction : MonoBehaviour, ISubject
         item.transform.position = transform.position + transform.forward * dropDistance + Vector3.up * dropHeight + vectorPointingToTheLeftOfThePlayer * dropHorizontalAdjust;
         item.transform.parent = null;
         if (item.GetComponent<Rigidbody>()) item.GetComponent<Rigidbody>().isKinematic = false;
+        if (item.GetComponent<Item>()) item.GetComponent<Item>().OnDropped();
 
         if (inventoryScript.GetCount() > 0) handScript.TakeItem(inventoryScript.Pop());
     }

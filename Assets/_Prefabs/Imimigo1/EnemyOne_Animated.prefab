@@ -1413,7 +1413,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1787324846728472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34, y: 0, z: 18.2}
+  m_LocalPosition: {x: -30.615047, y: 0.008867145, z: 17.04187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4678436929549604}
@@ -2056,7 +2056,13 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed by
+    Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:LeftHandPinky2'\n\tTransform
+    'mixamorig:RightHandRing2'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+    'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tand
+    more ...\n\tFrom animation clip 'Walk Backwards'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2118,9 +2124,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.1688015
+  m_Height: 3.9413779
   m_Direction: 1
-  m_Center: {x: 0, y: 1.7002195, z: 0}
+  m_Center: {x: 0, y: 1.9207643, z: 0}
 --- !u!137 &137129883139608336
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

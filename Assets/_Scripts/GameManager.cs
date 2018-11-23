@@ -22,16 +22,16 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	void OnApplicationFocus(bool hasFocus)
+	public void OnApplicationFocus(bool hasFocus)
     {
 		if (hasFocus) lockCursor();
 	}
 
 	void lockCursor()
     {
-		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Locked;
-	}
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     public void OnPlayerDied()
     {

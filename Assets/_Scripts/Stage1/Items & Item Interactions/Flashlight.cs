@@ -43,8 +43,23 @@ public class Flashlight : Item
         lightOnOffScript.TurnOnOff();
     }
     
-    public new void OnInteraction()
+    public override void OnInteraction()
     {
         base.OnInteraction();
+
+        FlashlightLightController light = GetComponentInChildren<FlashlightLightController>();
+        if (light)
+        {
+            light.enabled = true;
+        }
+    }
+
+    public override void OnDropped()
+    {
+        FlashlightLightController light = GetComponentInChildren<FlashlightLightController>();
+        if (light)
+        {
+            light.enabled = false;
+        }
     }
 }

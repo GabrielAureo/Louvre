@@ -16,7 +16,13 @@ public class PauseMenuController : MonoBehaviour
 
     private void Awake()
     {
-        Resume();
+        //Resume();
+
+        background.SetActive(false);
+        pausedText.SetActive(false);
+        resumeButton.SetActive(false);
+        menuButton.SetActive(false);
+        quitButton.SetActive(false);
     }
 
     public void PauseUnpause()
@@ -66,7 +72,8 @@ public class PauseMenuController : MonoBehaviour
     public void Menu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        LoadingScreen.LoadScene(0);
     }
 
     public void Quit()

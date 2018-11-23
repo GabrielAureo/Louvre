@@ -26,7 +26,7 @@ public class Item : MonoBehaviour, Readable
         originalParent = transform.parent;
     }
 
-    public void OnInteraction()
+    public virtual void OnInteraction()
     {
         onInteraction.Invoke();
 
@@ -91,4 +91,6 @@ public class Item : MonoBehaviour, Readable
         item1.SetNewOriginalSlot(parent2);
         item2.SetNewOriginalSlot(parent1);
     }
+
+    public virtual void OnDropped() {}
 }

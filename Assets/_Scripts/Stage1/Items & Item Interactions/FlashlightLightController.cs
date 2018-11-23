@@ -6,18 +6,24 @@ using DG.Tweening;
 public class FlashlightLightController : MonoBehaviour
 {
     private Camera mainCam;
+    private int layerMask;
 
     private void Start()
     {
         mainCam = Camera.main;
+
+        // Criando uma Layer Mask: todas as layers exceto Player e LightedArea
+        //               \/ Cria uma Layer que é só o Player, usando a operação de shift
+        //                                                        \/ Cria uma Layer que é só a LightedArea, usando a operação de shift
+        //                                                  \/ Usa a operação de OR bitwise para combinar as duas Layer do Player e da LightedArea
+        //          \/ Usa a operação de NOT bitwise para inverter a Layer, resultando numa Layer que vale para todas menos Player de LightedArea
+        layerMask = ~((1 << LayerMask.NameToLayer("Player")) | (1 << LayerMask.NameToLayer("LightedArea")) | (1 << LayerMask.NameToLayer("ItemSlot")));
     }
 
     private void Update()
     {
         RaycastHit hit;
         Vector3 pointHit;
-        //float distance;
-        int layerMask = ~LayerMask.GetMask("Player"); // Todas as layers exceto o player
 
         Vector3 origin = mainCam.transform.position;
         Vector3 direction = mainCam.transform.forward;
@@ -33,7 +39,7 @@ public class FlashlightLightController : MonoBehaviour
 
         transform.DOLookAt(pointHit, 0.5f, AxisConstraint.None, transform.up);
 
-        //distance = Vector3.Distance(origin, pointHit);
+        //float distance = Vector3.Distance(origin, pointHit);
         //Debug.DrawLine(origin, pointHit, Color.yellow, 0.1f);
     }
 }

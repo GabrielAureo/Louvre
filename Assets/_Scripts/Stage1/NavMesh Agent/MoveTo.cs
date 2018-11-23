@@ -55,4 +55,9 @@ public class MoveTo : MonoBehaviour
     {
         StopAllCoroutines();
     }
+
+    private void OnEnable()
+    {
+        StartCoroutine(UpdateGoal());
+    }
 }

@@ -62,12 +62,14 @@ public class GameOverMenuController : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        LoadingScreen.LoadScene(1);
     }
 
     public void Menu()
     {
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        LoadingScreen.LoadScene(0);
     }
 
     public void Quit()
