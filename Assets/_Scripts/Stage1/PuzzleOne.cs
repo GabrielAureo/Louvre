@@ -16,8 +16,6 @@ public class PuzzleOne : MonoBehaviour
     [SerializeField] private List<GameObject> mythologyPrefabs;
     [Tooltip("Prefabs dos quadros do tipo Altar que poderão aparecer na sala puzzle.")]
     [SerializeField] private List<GameObject> altarPrefabs;
-    [Tooltip("Prefabs dos quadros do tipo Luz e Sombras que poderão aparecer na sala puzzle.")]
-    [SerializeField] private List<GameObject> lightAndShadowsPrefabs;
     [Tooltip("Gêneros de quadros possíveis de aparecerem no puzzle.")]
     [SerializeField] private List<PaintingGenre> listOfGenres;
     [Tooltip("Referência para a prefab do inimigo.")]
@@ -167,13 +165,14 @@ public class PuzzleOne : MonoBehaviour
         DestroyPaintings();
 
         // Sorteia os novos gêneros da sala puzzle
-        // Porém, deve seguir a seguinte regra: a nova tentativa precisa ter dois gêneros que não estavam presentes na tentativa anterior
+        // Porém, deve seguir a seguinte regra: a nova tentativa precisa ter um gênero que não estava presente na tentativa anterior
         List<PaintingGenre> possibleGenres = listOfGenres.ToList<PaintingGenre>();
         List<PaintingGenre> genres = new List<PaintingGenre>();
 
         if (genresInTheLastTry.Count > 0)
         {
-            // Sorteia dois gêneros que estavam na última tentativa para remover da tentativa atual
+            // Sorteia um gênero que estava na última tentativa para remover da tentativa atual
+            genresInTheLastTry.Remove(genresInTheLastTry[ Random.Range(0, genresInTheLastTry.Count) ]);
             genresInTheLastTry.Remove(genresInTheLastTry[ Random.Range(0, genresInTheLastTry.Count) ]);
             genresInTheLastTry.Remove(genresInTheLastTry[ Random.Range(0, genresInTheLastTry.Count) ]);
             possibleGenres = possibleGenres.Except<PaintingGenre>(genresInTheLastTry).ToList<PaintingGenre>();
@@ -221,7 +220,6 @@ public class PuzzleOne : MonoBehaviour
         {
             case PaintingGenre.Altar:           return altarPrefabs[Random.Range(0, altarPrefabs.Count)];
             case PaintingGenre.Landscape:       return landscapePrefabs[Random.Range(0, landscapePrefabs.Count)];
-            case PaintingGenre.LightAndShadows: return lightAndShadowsPrefabs[Random.Range(0, lightAndShadowsPrefabs.Count)];
             case PaintingGenre.Madonna:         return madonnaPrefabs[Random.Range(0, madonnaPrefabs.Count)];
             case PaintingGenre.Mythology:       return mythologyPrefabs[Random.Range(0, mythologyPrefabs.Count)];
             case PaintingGenre.Portrait:        return portraitPrefabs[Random.Range(0, portraitPrefabs.Count)];

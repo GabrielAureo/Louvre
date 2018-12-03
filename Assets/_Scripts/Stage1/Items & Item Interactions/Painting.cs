@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public enum PaintingGenre { None, Madonna, Portrait, Landscape, Mythology, Altar, LightAndShadows }
+public enum PaintingGenre { None, Madonna, Portrait, Landscape, Mythology, Altar }
 
 public class Painting : MonoBehaviour, Readable
 {

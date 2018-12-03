@@ -83,9 +83,7 @@ MonoBehaviour:
   - {fileID: 1083270663787710, guid: 88b116f295cc53f4b811b977d0e61a20, type: 2}
   altarPrefabs:
   - {fileID: 1079122103151876, guid: 0f431b51fc99c2c47a550dc54e10311b, type: 2}
-  lightAndShadowsPrefabs:
-  - {fileID: 1185067282601930, guid: 41c26c57440cc5745b350b1c283b19dd, type: 2}
-  listOfGenres: 010000000200000003000000040000000500000006000000
+  listOfGenres: 0100000002000000030000000400000005000000
   enemyPrefab: {fileID: 1787324846728472, guid: 85553c4451ca1ad44b91738b05615f9c,
     type: 2}
   enemySpawnPoints:

@@ -22,12 +22,17 @@ public class FlashlightLightController : MonoBehaviour
 
     private void Update()
     {
+        UpdateRotation(false);
+    }
+
+    private void UpdateRotation(bool immediately)
+    {
         RaycastHit hit;
         Vector3 pointHit;
 
         Vector3 origin = mainCam.transform.position;
         Vector3 direction = mainCam.transform.forward;
-        
+
         if (Physics.Raycast(origin, direction, out hit, 100f, layerMask))
         {
             pointHit = hit.point;
@@ -37,9 +42,22 @@ public class FlashlightLightController : MonoBehaviour
             pointHit = origin + direction * 5f;
         }
 
-        transform.DOLookAt(pointHit, 0.5f, AxisConstraint.None, transform.up);
+        if (immediately)
+        {
+            transform.LookAt(pointHit, transform.up);
+        }
+        else
+        {
+            transform.DOLookAt(pointHit, 0.5f, AxisConstraint.None, transform.up);
+        }
 
         //float distance = Vector3.Distance(origin, pointHit);
         //Debug.DrawLine(origin, pointHit, Color.yellow, 0.1f);
+    }
+
+    private void OnEnable()
+    {
+        if (mainCam != null)
+            UpdateRotation(true);
     }
 }
