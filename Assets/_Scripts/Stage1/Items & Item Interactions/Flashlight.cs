@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using UnityStandardAssets.CrossPlatformInput;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -60,6 +61,14 @@ public class Flashlight : Item
         if (light)
         {
             light.enabled = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        {
+            TurnOnOff();
         }
     }
 }

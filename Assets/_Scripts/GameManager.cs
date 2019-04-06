@@ -5,21 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameOverMenuController gameOver;
-    [SerializeField] private PauseMenuController pause;
 
-	// Use this for initialization
 	void Start ()
     {
 		lockCursor();
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            pause.PauseUnpause();
-		}
 	}
 
 	public void OnApplicationFocus(bool hasFocus)

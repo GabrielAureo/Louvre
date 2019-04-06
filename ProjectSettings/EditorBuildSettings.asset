@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/MainMenu.unity
     guid: bfcb7671e1e6e8647b8207736576b2db
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Stage1.unity
     guid: 3d2ea48eaf34dbc41b58ffd34d4d6333
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/LoadingScreen.unity
     guid: c59bfca51f6523941a87ee70f4421f16
+  - enabled: 1
+    path: Assets/_Scenes/Novo_Museu.unity
+    guid: 14553698fa8073e4e8bd22cfb3922676
   m_configObjects: {}

@@ -12,17 +12,16 @@ public class ItemInteraction : MonoBehaviour, ISubject
     [SerializeField] private LayerMask interactableItemLayerMask;
     [SerializeField] private LayerMask examinableItemLayerMask;
     [SerializeField] private LayerMask slotLayerMask;
+    [SerializeField] private Hand handScript;
 
     public List<IObserver> observers;
 
     private Inventory inventoryScript;
-    private Hand handScript;
     private Camera mainCamera;
 
     private void Awake()
     {
         inventoryScript = GetComponent<Inventory>();
-        handScript = GetComponentInChildren<Hand>();
         mainCamera = Camera.main;
         observers = new List<IObserver>();
     }
@@ -35,10 +34,11 @@ public class ItemInteraction : MonoBehaviour, ISubject
 
     private void GetInput()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
-        {
-            if (handScript.ItemInHand && handScript.ItemInHand.GetComponent<Flashlight>()) handScript.ItemInHand.GetComponent<Flashlight>().TurnOnOff();
-        }
+        // The player will no longer be able to drop the flashlight, so we don't need to check if she is holding it anymore
+        //if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        //{
+        //    if (handScript.ItemInHand && handScript.ItemInHand.GetComponent<Flashlight>()) handScript.ItemInHand.GetComponent<Flashlight>().TurnOnOff();
+        //}
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -89,7 +89,8 @@ public class ItemInteraction : MonoBehaviour, ISubject
         RaycastHit hitInfo;
         if (PerformRaycast(out hitInfo, interactableItemLayerMask))
         {
-            GetItem(hitInfo.collider.gameObject);
+            if (!handScript.ItemInHand) // The game won't have an Inventory System anymore, so the player now can only hold one item at a time.
+                GetItem(hitInfo.collider.gameObject);
         }
     }
 

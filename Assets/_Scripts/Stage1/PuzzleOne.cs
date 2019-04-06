@@ -47,7 +47,11 @@ public class PuzzleOne : MonoBehaviour
         {
             LosePuzzle();
         }
-    }
+		if (Input.GetKeyDown(KeyCode.G))
+		{
+			SpawnEnemy();
+		}
+	}
 
     private void Awake()
     {

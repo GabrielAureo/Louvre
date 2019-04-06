@@ -1,21 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1687990222961112}
-  m_IsPrefabAsset: 1
 --- !u!1 &1687990222961112
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4215139759912550}
@@ -30,9 +20,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4215139759912550
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687990222961112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -41,11 +32,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114702313579157790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687990222961112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b658fc6e4b8334f8b851dbd4174077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: {fileID: 0}
+  pause: {fileID: 0}
 --- !u!114 &114219706488587614
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687990222961112}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -53,39 +59,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   madonnaPrefabs:
-  - {fileID: 1368939905175646, guid: ccde929d8bece2241b991d4c9f6d89dc, type: 2}
-  - {fileID: 1972388304577990, guid: d18a77a655451e34c8451eda0ce47768, type: 2}
-  - {fileID: 1238829927568290, guid: c245a24575f41dd47999a213ed0631da, type: 2}
-  - {fileID: 1478411773396102, guid: 92c8e6bfda7837f4cbc1e6389a8e5c50, type: 2}
-  - {fileID: 1418675149415068, guid: 5ba7c05df31a1d34ab10908bff969f70, type: 2}
-  - {fileID: 1487073250560630, guid: c4193539717f15946853d09da051939a, type: 2}
-  - {fileID: 1186275238126016, guid: 2696c8d041a36564f889c5506caa5177, type: 2}
-  - {fileID: 1477978912216308, guid: 4e329e485c7404049a376b24971c78c2, type: 2}
+  - {fileID: 1368939905175646, guid: ccde929d8bece2241b991d4c9f6d89dc, type: 3}
+  - {fileID: 1972388304577990, guid: d18a77a655451e34c8451eda0ce47768, type: 3}
+  - {fileID: 1238829927568290, guid: c245a24575f41dd47999a213ed0631da, type: 3}
+  - {fileID: 1478411773396102, guid: 92c8e6bfda7837f4cbc1e6389a8e5c50, type: 3}
+  - {fileID: 1418675149415068, guid: 5ba7c05df31a1d34ab10908bff969f70, type: 3}
+  - {fileID: 1487073250560630, guid: c4193539717f15946853d09da051939a, type: 3}
+  - {fileID: 1186275238126016, guid: 2696c8d041a36564f889c5506caa5177, type: 3}
+  - {fileID: 1477978912216308, guid: 4e329e485c7404049a376b24971c78c2, type: 3}
   portraitPrefabs:
-  - {fileID: 1087952073657670, guid: e19cc6671660b2c41938d86271c7d738, type: 2}
-  - {fileID: 1879188670270778, guid: e9a15a6d825eddb4fbfdefff52a581e2, type: 2}
-  - {fileID: 1884253251388624, guid: fbc0d321e5048ec4baca28094e369ada, type: 2}
-  - {fileID: 1165335689729206, guid: dbcf102fea97f4a48a3859f720208005, type: 2}
-  - {fileID: 1552568280074882, guid: 25bf966a50234764ab0ad5d868610dbe, type: 2}
-  - {fileID: 1477820492980126, guid: 3e1c1f2f71cef424fbbeffb654c3bfd2, type: 2}
+  - {fileID: 1087952073657670, guid: e19cc6671660b2c41938d86271c7d738, type: 3}
+  - {fileID: 1879188670270778, guid: e9a15a6d825eddb4fbfdefff52a581e2, type: 3}
+  - {fileID: 1884253251388624, guid: fbc0d321e5048ec4baca28094e369ada, type: 3}
+  - {fileID: 1165335689729206, guid: dbcf102fea97f4a48a3859f720208005, type: 3}
+  - {fileID: 1552568280074882, guid: 25bf966a50234764ab0ad5d868610dbe, type: 3}
+  - {fileID: 1477820492980126, guid: 3e1c1f2f71cef424fbbeffb654c3bfd2, type: 3}
   landscapePrefabs:
-  - {fileID: 1630408575738662, guid: b447e822f15f1524b8ac91db5f61589d, type: 2}
-  - {fileID: 1084383801004570, guid: 72d86261be669264a8c7f83ea4f08a7a, type: 2}
-  - {fileID: 1984080539511996, guid: 9c1ee60c31c7e7c4883888c52b399ff8, type: 2}
-  - {fileID: 1132384697556526, guid: 41761ca73f63a5344935d492c460da64, type: 2}
+  - {fileID: 1630408575738662, guid: b447e822f15f1524b8ac91db5f61589d, type: 3}
+  - {fileID: 1084383801004570, guid: 72d86261be669264a8c7f83ea4f08a7a, type: 3}
+  - {fileID: 1984080539511996, guid: 9c1ee60c31c7e7c4883888c52b399ff8, type: 3}
+  - {fileID: 1132384697556526, guid: 41761ca73f63a5344935d492c460da64, type: 3}
   mythologyPrefabs:
-  - {fileID: 1129079205462406, guid: 33fef7c2901ede7499940dec3c609c40, type: 2}
-  - {fileID: 1197728380814458, guid: ef960b7477d9d9042bfa03f5a78c2698, type: 2}
-  - {fileID: 1905057469525376, guid: 85f19af5a12b6c746b0425eb54e1a20f, type: 2}
-  - {fileID: 1731987103101436, guid: 00756861ebe7b1941a5a7e5d52406360, type: 2}
-  - {fileID: 1662231155656668, guid: f6235f7253d4d1846b36293f72edc4a0, type: 2}
-  - {fileID: 1932924533079990, guid: c4dad77fb26078e4dbf53f15b85757ca, type: 2}
-  - {fileID: 1083270663787710, guid: 88b116f295cc53f4b811b977d0e61a20, type: 2}
+  - {fileID: 1129079205462406, guid: 33fef7c2901ede7499940dec3c609c40, type: 3}
+  - {fileID: 1197728380814458, guid: ef960b7477d9d9042bfa03f5a78c2698, type: 3}
+  - {fileID: 1905057469525376, guid: 85f19af5a12b6c746b0425eb54e1a20f, type: 3}
+  - {fileID: 1731987103101436, guid: 00756861ebe7b1941a5a7e5d52406360, type: 3}
+  - {fileID: 1662231155656668, guid: f6235f7253d4d1846b36293f72edc4a0, type: 3}
+  - {fileID: 1932924533079990, guid: c4dad77fb26078e4dbf53f15b85757ca, type: 3}
+  - {fileID: 1083270663787710, guid: 88b116f295cc53f4b811b977d0e61a20, type: 3}
   altarPrefabs:
-  - {fileID: 1079122103151876, guid: 0f431b51fc99c2c47a550dc54e10311b, type: 2}
+  - {fileID: 1079122103151876, guid: 0f431b51fc99c2c47a550dc54e10311b, type: 3}
   listOfGenres: 0100000002000000030000000400000005000000
   enemyPrefab: {fileID: 1787324846728472, guid: 85553c4451ca1ad44b91738b05615f9c,
-    type: 2}
+    type: 3}
   enemySpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -120,16 +126,3 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114702313579157790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1687990222961112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68b658fc6e4b8334f8b851dbd4174077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
-  pause: {fileID: 0}

@@ -7,8 +7,10 @@ public class EnemyOne : MonoBehaviour
 {
     private Animator anim;
     private Transform mySpawnPoint;
+	private NavMeshAgent agent;
+	private MoveTo moveTo;
 
-    public Transform MySpawnPoint
+	public Transform MySpawnPoint
     {
         get
         {
@@ -23,18 +25,23 @@ public class EnemyOne : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+		agent = GetComponent<NavMeshAgent>();
+		moveTo = GetComponent<MoveTo>();
+		anim = GetComponent<Animator>();
         anim.SetBool("WalkBackwards", false);
+		
     }
 
     private void Update()
     {
         DestroyWhenArrivedAtStartPoint();
-    }
+
+		anim.SetFloat("BlendX", agent.velocity.magnitude / 4);
+	}
 
     private void DestroyWhenArrivedAtStartPoint()
     {
-        if (anim.GetBool("WalkBackwards") && Vector3.Distance(transform.position, mySpawnPoint.position) <= 0.1f)
+        if (anim.GetBool("WalkBackwards") && Vector3.Distance(transform.position, mySpawnPoint.position) <= 0.5f)
         {
             Destroy(gameObject);
         }
@@ -57,10 +64,21 @@ public class EnemyOne : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("LightedArea"))
         {
-            //Destroy(gameObject);
-            GetComponent<MoveTo>().Goal = mySpawnPoint;
-            anim.SetBool("WalkBackwards", true);
-            Physics.IgnoreCollision(GetComponent<Collider>(), FindObjectOfType<CharacterController>().GetComponent<Collider>());
-        }
+			agent.isStopped = true;
+			StartCoroutine(WalkBackwards());
+		}
     }
+
+	private IEnumerator WalkBackwards()
+	{		
+		yield return new WaitForSeconds(2f);
+
+		agent.isStopped = false;
+		StopCoroutine(moveTo.UpdateGoalTime());
+		moveTo.Goal = mySpawnPoint;
+		moveTo.UpdateGoal();
+		anim.SetBool("walkbackwards", true);
+		Physics.IgnoreCollision(GetComponent<Collider>(), FindObjectOfType<CharacterController>().GetComponent<Collider>());
+
+	}
 }

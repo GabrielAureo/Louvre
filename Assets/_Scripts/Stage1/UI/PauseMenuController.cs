@@ -25,6 +25,14 @@ public class PauseMenuController : MonoBehaviour
         quitButton.SetActive(false);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseUnpause();
+        }
+    }
+
     public void PauseUnpause()
     {
         if (isPaused)

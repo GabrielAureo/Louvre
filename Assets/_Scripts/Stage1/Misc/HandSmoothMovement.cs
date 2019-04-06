@@ -7,7 +7,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class HandSmoothMovement : MonoBehaviour
 {
     [SerializeField] private Transform character;
-    [SerializeField] private Transform hand;
+    [SerializeField] private Transform rHand, lHand;
     [SerializeField] private float smoothTime = 5f;
     [SerializeField] private float XSensitivity = 2f;
     [SerializeField] private float YSensitivity = 2f;
@@ -45,7 +45,8 @@ public class HandSmoothMovement : MonoBehaviour
         {
             float xRot = CrossPlatformInputManager.GetAxis("Mouse Y") * YSensitivity;
             targetXRot *= Quaternion.Euler(-xRot, 0f, 0f);
-            hand.localRotation = Quaternion.Slerp(hand.localRotation, targetXRot, smoothTime * Time.deltaTime);
+            rHand.localRotation = Quaternion.Slerp(rHand.localRotation, targetXRot, smoothTime * Time.deltaTime);
+            lHand.localRotation = Quaternion.Slerp(lHand.localRotation, targetXRot, smoothTime * Time.deltaTime);
         }
 
         float yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;

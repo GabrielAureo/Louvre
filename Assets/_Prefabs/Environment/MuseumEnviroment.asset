@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,15 +13,34 @@ MonoBehaviour:
   m_Name: MuseumEnviroment
   m_EditorClassIdentifier: 
   m_prefabs:
-  - name: "Ch\xE3o"
-    prefab: {fileID: 1727219861191840, guid: 974ae84fa56143240bbf9c55ec4a57d5, type: 2}
+  - name: Teto
+    prefab: {fileID: 1293368739778762, guid: fe299a9108b7365498457cdcb50b241b, type: 3}
     display: {fileID: 0}
-  - name: Parede Leste
-    prefab: {fileID: 1311058742190530, guid: bc1fb6dd94eea4541ab39d0dacce1a10, type: 2}
+  - name: CheckeredFloor
+    prefab: {fileID: 1727219861191840, guid: 974ae84fa56143240bbf9c55ec4a57d5, type: 3}
     display: {fileID: 0}
-  - name: Parede Norte
-    prefab: {fileID: 1584792461295860, guid: ba98b823e6fb5cc4d8680c153309d026, type: 2}
+  - name: NorthMuseumWall
+    prefab: {fileID: 1584792461295860, guid: ba98b823e6fb5cc4d8680c153309d026, type: 3}
+    display: {fileID: 0}
+  - name: EastMuseumWall
+    prefab: {fileID: 1311058742190530, guid: bc1fb6dd94eea4541ab39d0dacce1a10, type: 3}
+    display: {fileID: 0}
+  - name: NorthDoorWall
+    prefab: {fileID: 1412064006553115636, guid: 416f6a87c22ffb2449eb231f7a20b60a,
+      type: 3}
+    display: {fileID: 0}
+  - name: EastDoorWall
+    prefab: {fileID: 7161066443636594415, guid: 8544fe9c8df3eb84191cb430d9fa96a4,
+      type: 3}
+    display: {fileID: 0}
+  - name: NorthArchWall
+    prefab: {fileID: 4698319934582869567, guid: 454bea05e4f0a36499bc635cea7dd609,
+      type: 3}
+    display: {fileID: 0}
+  - name: EastArchWall
+    prefab: {fileID: 8722016427557046832, guid: bd802cdcd4b6b8d4cb2092de7f5a62d8,
+      type: 3}
     display: {fileID: 0}
   activePrefab: {fileID: 1727219861191840, guid: 974ae84fa56143240bbf9c55ec4a57d5,
-    type: 2}
+    type: 3}
   m_Z: 0

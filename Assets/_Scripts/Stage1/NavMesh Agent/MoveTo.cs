@@ -28,28 +28,32 @@ public class MoveTo : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         path = new NavMeshPath();
-        agent.CalculatePath(goal.position, path);
-        agent.SetPath(path);
+		UpdateGoal();
 
-        //agent.SetDestination(goal.position);
+		//agent.SetDestination(goal.position);
 
-        StartCoroutine(UpdateGoal());
+		StartCoroutine(UpdateGoalTime());
     }
 
-    private IEnumerator UpdateGoal()
+    public IEnumerator UpdateGoalTime()
     {
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            //print(agent.pathStatus);
+			//print(agent.pathStatus);
 
-            agent.CalculatePath(goal.position, path);
-            agent.SetPath(path);
+			UpdateGoal();
 
-            //agent.ResetPath();
-            //agent.SetDestination(goal.position);
-        }
+			//agent.ResetPath();
+			//agent.SetDestination(goal.position);
+		}
     }
+
+	public void UpdateGoal()
+	{
+		agent.CalculatePath(goal.position, path);
+		agent.SetPath(path);
+	}
 
     private void OnDisable()
     {
@@ -58,6 +62,6 @@ public class MoveTo : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(UpdateGoal());
+        StartCoroutine(UpdateGoalTime());
     }
 }
